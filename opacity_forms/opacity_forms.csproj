@@ -1,0 +1,778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{77EB1194-B023-4EB2-97C7-30F887947E02}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>opacity_forms</RootNamespace>
+    <AssemblyName>opacity_forms</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1486504340-calendar-date-event-month-schedule_81325.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.TemplateEngine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Viewing.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net48\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="background.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="background.Designer.cs">
+      <DependentUpon>background.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Alert\Alert.cs" />
+    <Compile Include="Boxes\Alert\Right_side.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Alert\Right_side.Designer.cs">
+      <DependentUpon>Right_side.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Alert\ScrollMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Alert\ScrollMessage.Designer.cs">
+      <DependentUpon>ScrollMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Alert\topShort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Alert\topShort.Designer.cs">
+      <DependentUpon>topShort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Forms\accesses\Accesses_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Forms\accesses\Accesses_Form.Designer.cs">
+      <DependentUpon>Accesses_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Forms\category\Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Forms\category\Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Forms\hash\New_Hash_Code_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Forms\hash\New_Hash_Code_Form.Designer.cs">
+      <DependentUpon>New_Hash_Code_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Forms\messege\message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Forms\messege\message.Designer.cs">
+      <DependentUpon>message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Forms\persons\make_new_person_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Forms\persons\make_new_person_Form.Designer.cs">
+      <DependentUpon>make_new_person_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Forms\persons\set_person_access_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Forms\persons\set_person_access_Form.Designer.cs">
+      <DependentUpon>set_person_access_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\Login\login_helper.cs" />
+    <Compile Include="Boxes\windows\Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Boxes\windows\Date.Designer.cs">
+      <DependentUpon>Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\windows\Categories.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Boxes\windows\Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\windows\helper\Date.cs" />
+    <Compile Include="Boxes\windows\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\global_inf.cs" />
+    <Compile Include="Classes\Helper\APP\Config.cs" />
+    <Compile Include="Classes\Helper\APP\hash.cs" />
+    <Compile Include="Classes\Helper\CRUD.cs" />
+    <Compile Include="Classes\Helper\DB.cs" />
+    <Compile Include="Classes\Helper\ENV.cs" />
+    <Compile Include="Classes\Helper\Function.cs" />
+    <Compile Include="Classes\model\messages.cs" />
+    <Compile Include="Classes\model\test.cs" />
+    <Compile Include="HelpStack\BitmapFilter.cs" />
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="background.resx">
+      <DependentUpon>background.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Alert\Right_side.resx">
+      <DependentUpon>Right_side.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Alert\ScrollMessage.resx">
+      <DependentUpon>ScrollMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Alert\topShort.resx">
+      <DependentUpon>topShort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Forms\accesses\Accesses_Form.resx">
+      <DependentUpon>Accesses_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Forms\category\Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Forms\hash\New_Hash_Code_Form.resx">
+      <DependentUpon>New_Hash_Code_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Forms\messege\message.resx">
+      <DependentUpon>message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Forms\persons\make_new_person_Form.resx">
+      <DependentUpon>make_new_person_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Forms\persons\set_person_access_Form.resx">
+      <DependentUpon>set_person_access_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\windows\Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\windows\Date.resx">
+      <DependentUpon>Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toppng.com-windows-logo-500x469.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tene28%282194%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-head-flag-reduced-opacity-usa-flag-bandana-942148.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color-pencils-png-image-653105.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line-tattoos-red-paint-color-tattoo-tatoo-paint-red-error-cross-1112295.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds-transparent-background-for-login-page-1049247.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frame-school-school-decorations-school-themes-cartoons-frames-and-borders-1014618.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondos-school-back-to-school-welcome-back-to-school-277031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school-clipart-clipart-school-material-276222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\this-school-backpack-clip-art-free-clipart-images-274405.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school-bus-clipart-black-and-white-free-school-bus-274754.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-school-bus-clip-art-274868.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\going-to-school-clipart-gallery-images-275407.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green-school-board-png-274396.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nisekoi-anime-boys-anime-boys-kiss-anime-base-1585702.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aisaka-taiga-anime-toradora-tigr-protiv-drakona-taiga-aisaka-white-coat-1584927.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\katsute-kami-datta-kemonotachi-e-anime-1446347.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\girl-girls-anime-animegirl-animegirls-cute-kawaii-681635.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1143969_300[1].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4K Wallpapers %288%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align-justify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24px_person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-out-alt_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forgot-password-clipart-876155.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\can-your-leaders-manage-conflict-reflective-practice-1640795.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\judy-zootopia-1274785.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-award-ribbon-157516.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\how-to-run-windows-xp-windows-and-windows-in-aws-and-google-472050.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\go_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\books_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart-pie-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\create_16_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\create_24_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-circle-free-icon-font %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_16_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeBue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeBue_slash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye-slash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid-free-icon-font %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List_16_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List_24_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_16_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picture2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picture21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sack-dollar-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school-free-icon-font1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-free-icon-font %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck-moving-free-icon-font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck-moving-free-icon-font1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update_16_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-free-icon-font %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-free-icon-font %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Boxes\windows\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Boxes\crystal\test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="CRDESIGNERLib">
+      <Guid>{C0AA5023-C763-4A4B-AFED-ADCF78D6C08B}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CRQUERYENGINE">
+      <Guid>{E4B81D51-FB89-4D07-84A3-00BA9B71D76E}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CRReportPromptEMFLib">
+      <Guid>{7A4E36DC-A11A-4CAF-BC2A-700ECC668FD6}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CRREPORTSOURCEBRIDGELib">
+      <Guid>{80F19574-9245-4DFA-A0A6-8A21874282D3}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalActiveXReportViewerLib13">
+      <Guid>{B816E96D-D151-4000-BADB-53A2D8F3FC65}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalPrintControlLib">
+      <Guid>{62862E3F-F35B-455E-9459-49EAADE80A25}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsDTSAgentLib">
+      <Guid>{3D5D05F6-E97D-43A0-90DC-5D8A6C6C6DB1}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsLocalConnectionMgrLib">
+      <Guid>{EC39F6C4-A9F2-4341-806B-1529E049A945}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportViewerExportLib">
+      <Guid>{5C21A516-C6AC-42F2-A7B7-846FFE1B122A}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportViewerWebReportSourceLib">
+      <Guid>{14173BA7-071D-4216-8C9B-EAB29A55E2D4}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EMFGENLib">
+      <Guid>{C097B4CF-2CEA-442F-B025-610D2B0C05C8}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="PAGEOBJECTMODELLib">
+      <Guid>{237F4BEC-8AE5-41E1-AE84-B194E4670597}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VLELib">
+      <Guid>{ACF55B94-B31C-4604-912A-314B00C1595D}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-pixabay-220067.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-freestocksorg-749352.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close %2824%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add24_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-arnie-chou-1089280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-alexander-mils-1132044.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-bob-clark-21492.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-bob-springbob-306864.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-darius-krause-2242461.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-dids-6253893.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-roman-odintsov-6332406.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-skitterphoto-730919.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-pixabay-220092.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-yulia-ilina-10726978.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1486504340-calendar-date-event-month-schedule_81325.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
