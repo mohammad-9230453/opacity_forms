@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "opacity_forms", "opacity_fo
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Dates", "Dates\Dates.vdproj", "{8D89233D-CC68-4567-91A4-CB2621251BE8}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GoodDays", "GoodDays\GoodDays.vdproj", "{7694B71E-425E-43BA-8F49-0EAF1FDAAE51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,11 @@ Global
 		{8D89233D-CC68-4567-91A4-CB2621251BE8}.Release|Any CPU.ActiveCfg = Release
 		{8D89233D-CC68-4567-91A4-CB2621251BE8}.Release|Any CPU.Build.0 = Release
 		{8D89233D-CC68-4567-91A4-CB2621251BE8}.Release|x86.ActiveCfg = Release
+		{7694B71E-425E-43BA-8F49-0EAF1FDAAE51}.Debug|Any CPU.ActiveCfg = Debug
+		{7694B71E-425E-43BA-8F49-0EAF1FDAAE51}.Debug|Any CPU.Build.0 = Debug
+		{7694B71E-425E-43BA-8F49-0EAF1FDAAE51}.Debug|x86.ActiveCfg = Debug
+		{7694B71E-425E-43BA-8F49-0EAF1FDAAE51}.Release|Any CPU.ActiveCfg = Release
+		{7694B71E-425E-43BA-8F49-0EAF1FDAAE51}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
