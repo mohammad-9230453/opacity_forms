@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.btn_تنضیمات = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.date2 = new opacity_forms.Boxes.windows.Date();
             this.pnl_list = new System.Windows.Forms.Panel();
             this.pnl_drop_3 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -65,6 +64,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tik_tok_date_time = new System.Windows.Forms.Timer(this.components);
+            this.lbl_day = new System.Windows.Forms.Label();
+            this.lbl_time = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.date2 = new opacity_forms.Boxes.windows.Date();
             this.panel1.SuspendLayout();
             this.pnl_list.SuspendLayout();
             this.pnl_drop_3.SuspendLayout();
@@ -108,16 +112,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1102, 603);
             this.panel1.TabIndex = 1;
-            // 
-            // date2
-            // 
-            this.date2.BackColor = System.Drawing.Color.Transparent;
-            this.date2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.date2.Location = new System.Drawing.Point(0, 39);
-            this.date2.Name = "date2";
-            this.date2.Size = new System.Drawing.Size(907, 540);
-            this.date2.TabIndex = 2;
-            this.date2.Visible = false;
             // 
             // pnl_list
             // 
@@ -394,12 +388,15 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.lbl_time);
+            this.panel2.Controls.Add(this.lbl_day);
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lbl_username);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(654, 0);
+            this.panel2.Location = new System.Drawing.Point(392, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(405, 39);
+            this.panel2.Size = new System.Drawing.Size(667, 39);
             this.panel2.TabIndex = 3;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
@@ -412,7 +409,7 @@
             this.label1.Font = new System.Drawing.Font("B Titr", 12.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(219, 0);
+            this.label1.Location = new System.Drawing.Point(481, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
@@ -431,7 +428,7 @@
             this.lbl_username.Font = new System.Drawing.Font("B Titr", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lbl_username.ForeColor = System.Drawing.Color.White;
             this.lbl_username.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_username.Location = new System.Drawing.Point(309, 0);
+            this.lbl_username.Location = new System.Drawing.Point(571, 0);
             this.lbl_username.Margin = new System.Windows.Forms.Padding(0);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Padding = new System.Windows.Forms.Padding(0, 3, 6, 0);
@@ -590,6 +587,70 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // tik_tok_date_time
+            // 
+            this.tik_tok_date_time.Enabled = true;
+            this.tik_tok_date_time.Interval = 1000;
+            this.tik_tok_date_time.Tick += new System.EventHandler(this.tik_tok_date_time_Tick);
+            // 
+            // lbl_day
+            // 
+            this.lbl_day.AutoSize = true;
+            this.lbl_day.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_day.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_day.ForeColor = System.Drawing.Color.White;
+            this.lbl_day.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_day.Location = new System.Drawing.Point(280, 0);
+            this.lbl_day.Name = "lbl_day";
+            this.lbl_day.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.lbl_day.Size = new System.Drawing.Size(181, 30);
+            this.lbl_day.TabIndex = 1;
+            this.lbl_day.Text = "پنج شنبه 1374/03/16";
+            this.lbl_day.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
+            this.lbl_day.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
+            // 
+            // lbl_time
+            // 
+            this.lbl_time.AutoSize = true;
+            this.lbl_time.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_time.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time.ForeColor = System.Drawing.Color.White;
+            this.lbl_time.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_time.Location = new System.Drawing.Point(171, 0);
+            this.lbl_time.Name = "lbl_time";
+            this.lbl_time.Padding = new System.Windows.Forms.Padding(0, 8, 10, 10);
+            this.lbl_time.Size = new System.Drawing.Size(109, 41);
+            this.lbl_time.TabIndex = 1;
+            this.lbl_time.Text = "23:22:18";
+            this.lbl_time.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
+            this.lbl_time.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("B Titr", 12.75F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label8.Location = new System.Drawing.Point(461, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label8.Size = new System.Drawing.Size(20, 34);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "|";
+            // 
+            // date2
+            // 
+            this.date2.BackColor = System.Drawing.Color.Transparent;
+            this.date2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.date2.Location = new System.Drawing.Point(0, 39);
+            this.date2.Name = "date2";
+            this.date2.Size = new System.Drawing.Size(907, 540);
+            this.date2.TabIndex = 2;
+            this.date2.Visible = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,6 +720,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         public Boxes.windows.Date date2;
+        private System.Windows.Forms.Label lbl_time;
+        private System.Windows.Forms.Label lbl_day;
+        private System.Windows.Forms.Timer tik_tok_date_time;
+        private System.Windows.Forms.Label label8;
     }
 }
 

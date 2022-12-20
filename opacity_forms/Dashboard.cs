@@ -53,6 +53,8 @@ namespace opacity_forms
             label1.BackColor = Color.FromArgb(0, Color.Black);
             pnl_headers.BackColor = Color.FromArgb(195, Color.Black);
             lbl_username.BackColor = Color.FromArgb(0, Color.Black);
+            lbl_day.BackColor  = label8.BackColor = Color.FromArgb(0, Color.Black);
+            lbl_time.BackColor = Color.FromArgb(0, Color.Black);
             panel2.BackColor = Color.FromArgb(0, Color.Black);
             btn_exit.BackColor = Color.FromArgb(165, 62, 10, 10);
             this.background = background;
@@ -381,6 +383,42 @@ namespace opacity_forms
         {
             Boxes.Forms.category.Category category = new Boxes.Forms.category.Category();
             category.Show();
+        }
+        string date;
+        private void tik_tok_date_time_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.UtcNow.ToLocalTime();
+            lbl_time.Text = dt.ToString("HH:mm:ss");//ساعت
+            // تاریخ فارسی
+            System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
+            //روز هفته
+            switch (date = pc.GetDayOfWeek(dt).ToString().ToLower())
+            {
+                case "monday":
+                    date = "دوشنبه";
+                    break;
+                case "tuesday":
+                    date = "سه شنبه";
+                    break;
+                case "wednesday":
+                    date = "چهارشنبه";
+                    break;
+                case "thursday":
+                    date = "پنجشنبه";
+                    break;
+                case "friday":
+                    date = "جمعه";
+                    break;
+                case "saturday":
+                    date = "شنبه";
+                    break;
+                case "sunday":
+                    date = "یکشنبه";
+                    break;
+            }
+
+            date += $" {pc.GetYear(dt)}/{pc.GetMonth(dt)}/{pc.GetDayOfMonth(dt)} ";
+            if (lbl_day.Text != date)lbl_day.Text = date;
         }
     }
 }
