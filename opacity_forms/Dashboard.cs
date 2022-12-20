@@ -53,7 +53,7 @@ namespace opacity_forms
             label1.BackColor = Color.FromArgb(0, Color.Black);
             pnl_headers.BackColor = Color.FromArgb(195, Color.Black);
             lbl_username.BackColor = Color.FromArgb(0, Color.Black);
-            lbl_day.BackColor  = label8.BackColor = Color.FromArgb(0, Color.Black);
+            lbl_day.BackColor  = Color.FromArgb(0, Color.Black);
             lbl_time.BackColor = Color.FromArgb(0, Color.Black);
             panel2.BackColor = Color.FromArgb(0, Color.Black);
             btn_exit.BackColor = Color.FromArgb(165, 62, 10, 10);
@@ -418,7 +418,12 @@ namespace opacity_forms
             }
 
             date += $" {pc.GetYear(dt)}/{pc.GetMonth(dt)}/{pc.GetDayOfMonth(dt)} ";
-            if (lbl_day.Text != date)lbl_day.Text = date;
+            if (lbl_day.Text != date) 
+            {
+                lbl_day.Text = date;
+                Classes.global_inf.today = dt;
+                this.date2.Set_Year();
+            }
         }
     }
 }

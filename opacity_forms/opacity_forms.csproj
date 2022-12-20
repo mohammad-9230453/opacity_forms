@@ -242,6 +242,7 @@
     <Compile Include="Classes\Helper\DB.cs" />
     <Compile Include="Classes\Helper\ENV.cs" />
     <Compile Include="Classes\Helper\Function.cs" />
+    <Compile Include="Classes\model\freedays.cs" />
     <Compile Include="Classes\model\messages.cs" />
     <Compile Include="Classes\model\test.cs" />
     <Compile Include="HelpStack\BitmapFilter.cs" />

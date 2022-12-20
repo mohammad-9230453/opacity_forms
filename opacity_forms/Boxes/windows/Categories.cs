@@ -220,7 +220,7 @@ namespace opacity_forms.Boxes.windows.helper
         {
             btn_cancel.Visible = false;
             txt_att_name.Text = txt_att_text.Text = null;
-            MessageBox.Show("btn_cancel_Click");
+            //MessageBox.Show("btn_cancel_Click");
 
         }
 

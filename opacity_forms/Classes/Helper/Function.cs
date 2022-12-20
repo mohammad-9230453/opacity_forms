@@ -40,6 +40,42 @@ namespace opacity_forms.Classes.Helper
 
 
 
+        public static string RowConvertToStr(DataRow row, string cell)
+        {
+            return
+                row[cell] == DBNull.Value
+                ?
+                string.Empty
+                :
+                //(T)row[cell] ;
+                row[cell].ToString();
+        }
+
+        public static int RowConvertToInt(DataRow row, string cell)
+        {
+            var val = row[cell];
+
+            return
+                row[cell] == DBNull.Value || (val.GetType() != typeof(UInt32) && val.GetType() != typeof(int))
+                ?
+                0
+                :
+                //(T)row[cell] ;
+                int.Parse(row[cell].ToString());
+        }
+        public static float RowConvertToFloat(DataRow row, string cell)
+        {
+
+            return
+                row[cell] == DBNull.Value || (row[cell].GetType() != typeof(Double) && row[cell].GetType() != typeof(float) && row[cell].GetType() != typeof(Single))
+                ?
+                0
+                :
+                //(T)row[cell] ;
+                float.Parse(row[cell].ToString());
+        }
+
+
 
 
 

@@ -30,6 +30,7 @@ namespace opacity_forms.Boxes.windows
         }
         private string today;
         List<Classes.model.messages> messages = new List<Classes.model.messages>();
+        List<Classes.model.freedays> freedays = new List<Classes.model.freedays>();
         private List<Classes.model.messages> dt_to_messages(DataTable dt)
         {
             var convertToList = (from rw in dt.AsEnumerable()
@@ -49,6 +50,21 @@ namespace opacity_forms.Boxes.windows
                                  }).ToList();
             return convertToList;
         }
+        private List<Classes.model.freedays> dt_to_freedays(DataTable dt)
+        {
+            var convertToList = (from row in dt.AsEnumerable()
+                                 select new Classes.model.freedays()
+                                 {
+                                     D = Classes.Helper.Function.RowConvertToInt(row, "D"),
+                                     M = Classes.Helper.Function.RowConvertToInt(row, "M"),
+                                     Y = Classes.Helper.Function.RowConvertToInt(row, "Y"),
+                                     user_id = Classes.Helper.Function.RowConvertToInt(row, "user_id"),
+                                     id = Classes.Helper.Function.RowConvertToInt(row, "id"),
+                                     color = Classes.Helper.Function.RowConvertToStr(row, "color"),
+
+                                 }).ToList();
+            return convertToList;
+        }
         public void Set_Year()
         {
 
@@ -57,6 +73,8 @@ namespace opacity_forms.Boxes.windows
             DateTime end_year = new DateTime(year, 12, pc.GetDaysInMonth(year, 12), pc);
             DataTable dt = Classes.Helper.DB.GET_DATA_TABLE($"SELECT * FROM messages WHERE (Y=-1 OR Y={year})AND(has_end=0 OR (has_end=1 AND end_date>='{start_year.Year.ToString()}/{start_year.Month.ToString()}/{start_year.Day.ToString()}' )) AND cat_id={Classes.global_inf.cat_id}");
             messages = dt_to_messages(dt);
+            DataTable _dt = Classes.Helper.DB.GET_DATA_TABLE($"SELECT * FROM freedays WHERE Y={year} AND user_id={Classes.global_inf.user_id} AND ( cat_id={Classes.global_inf.cat_id} OR cat_id = 0 ) ORDER BY cat_id DESC");
+            freedays = dt_to_freedays(_dt);
             DateTime tdy = Classes.global_inf.today;
             today = $"{pc.GetYear(tdy)}/{pc.GetMonth(tdy)}/{pc.GetDayOfMonth(tdy)}";
             month = 1;
@@ -89,6 +107,7 @@ namespace opacity_forms.Boxes.windows
         private void SET_DAYS(DataGridView dataGrid, int days, int start_week)
         {
             IDictionary<int, string> daysMsgs = new Dictionary<int, string>();
+            IDictionary<int, List<int>> dayFreeOrNot = new Dictionary<int, List<int>>();
             string msg;
             DataGridViewCell cell;
             dataGrid.Rows.Clear();
@@ -98,6 +117,7 @@ namespace opacity_forms.Boxes.windows
             List<int> arr_ = new List<int> { };
             int iday = 1;
             bool flag = false;
+            string color = null;
             int tdy = -1;
             while (iday <= days)
             {
@@ -110,10 +130,17 @@ namespace opacity_forms.Boxes.windows
                     {
                         date = new DateTime(year, month, iday, pc);
                         msg = String.Join("\n_________________________________________________\n", messages.Where(e => ((e.M == -1 || e.M == month) && (((e.D == -1)) || (e.D == iday && e.W == -1) || (e.D != -1 && e.W == Classes.Helper.Function.TO_INT_WEEK(date.DayOfWeek))) && ((e.has_end == 0) || ((e.has_end == 1) && (e.end_date >= date) && (e.date <= date))))).Select(e => e.msg).ToArray());
+                        color = freedays.Where(e => (e.Y == year && e.M == month && e.D == iday)).Select(e => e.color).FirstOrDefault();
+                        color=color??"null";
+                        //MessageBox.Show(color);
+                        
                         if (msg.Trim(' ', '\n').Length > 0) daysMsgs.Add(i, msg);
                         arr[i] = Convert.ToString(iday);
                         if (iday == 13) arr_.Add(i);
                         if ($"{year}/{month}/{iday}" == today) tdy = i;
+                        if (color.Length > 0 && color != "null") dayFreeOrNot.Add(i, color.Trim().Split(',', '-', '_', '@', '.', '#').Select(c => Convert.ToInt32(c.Trim())).ToList());
+                        //new List<int>() {100,12,12,255,255,255});
+                        //new List<int>() {255,255,255,0,0,0});
                         iday++;
                         start_week = i + 1;
                         if (start_week > 6) start_week = 0;
@@ -123,6 +150,12 @@ namespace opacity_forms.Boxes.windows
                 }
                 dataGrid.Rows.Add(arr);
                 //تعطیلیها
+                foreach (KeyValuePair<int, List<int>> keyValuePair in dayFreeOrNot)
+                {
+                    cell = dataGrid.Rows[dataGrid.Rows.Count - 1].Cells[keyValuePair.Key];
+                    cell.Style.BackColor = Color.FromArgb(keyValuePair.Value[0] , keyValuePair.Value[1] , keyValuePair.Value[2] );
+                    cell.Style.ForeColor = Color.FromArgb(keyValuePair.Value[3] , keyValuePair.Value[4] , keyValuePair.Value[5] );
+                }
                 //today
                 if (tdy != -1)
                 {
@@ -137,12 +170,13 @@ namespace opacity_forms.Boxes.windows
                 {
                     cell = dataGrid.Rows[dataGrid.Rows.Count - 1].Cells[keyValuePair.Key];
                     //cell.Style.BackColor = Color.FromArgb(100, 12, 12);
-                    cell.Style.ForeColor = Color.FromArgb(255, 0, 130);
+                    //cell.Style.ForeColor = Color.FromArgb(255, 0, 130);
                     cell.ToolTipText = keyValuePair.Value;
-                    cell.Style.Font = new System.Drawing.Font("MV Boli", 13.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+                    cell.Style.Font = new System.Drawing.Font("Segoe Print", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
                 arr_.Clear();
                 daysMsgs.Clear();
+                dayFreeOrNot.Clear();
 
             }
         }
@@ -189,7 +223,7 @@ namespace opacity_forms.Boxes.windows
 
             }
         }
-        int month = 0, day = 0, year = Classes.Helper.Function.TO_INT_WEEK(DateTime.UtcNow.DayOfWeek);
+        int month = 0, day = 0, year = (new PersianCalendar()).GetYear(DateTime.UtcNow.ToLocalTime());
 
         private void افزودنپیغامToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -205,6 +239,98 @@ namespace opacity_forms.Boxes.windows
                 msg.M = month.ToString();
                 msg.date = dt;
                 msg.ShowDialog(this);
+            }
+        }
+
+        private void تعطیلToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string color = "100,12,12_255,255,255";
+            if (month > 0 && day > 0)
+            {
+                if (Classes.Helper.DB.GET_BOOL($"SELECT * FROM freedays WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id}"))
+                {
+                    Classes.Helper.DB.SQL_QUERY($"UPDATE freedays SET color='{color}' WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id}");
+                    this.Set_Year();
+                    return;
+                }
+                Classes.Helper.DB.SQL_QUERY($"INSERT INTO freedays (D,M,Y,color,user_id) VALUES({day},{month},{year},'{color}',{Classes.global_inf.user_id})");
+                this.Set_Year();
+            }
+
+        }
+
+        private void آزادToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string color = "255,255,255_0,0,0";
+            if (month > 0 && day > 0)
+            {
+                if (Classes.Helper.DB.GET_BOOL($"SELECT * FROM freedays WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id}"))
+                {
+                    Classes.Helper.DB.SQL_QUERY($"UPDATE freedays SET color='{color}' WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id}");
+                    this.Set_Year();
+                    return;
+                }
+                Classes.Helper.DB.SQL_QUERY($"INSERT INTO freedays (D,M,Y,color,user_id) VALUES({day},{month},{year},'{color}',{Classes.global_inf.user_id})");
+                this.Set_Year();
+            }
+        }
+
+        private void Color_Click(object sender, EventArgs e)
+        {
+            string text = (sender as ToolStripMenuItem).Text.Trim();
+            string color =
+                text == "مشکی" ?
+                "0,0,0_255,255,255":
+                text == "سبز" ?
+                "39,135,71_255,255,255":
+                text == "آبی" ?
+                "39,86,135_255,255,255":
+                text == "بنفش" ?
+                "125,39,135_255,255,255":
+                text == "زرد" ?
+                "135,123,39_255,255,255":
+                text == "بنفش2" ?
+                "78,0,76_255,255,255":
+                text == "سرمه ای" ?
+                "45,0,78_255,255,255":
+                text == "آبی تیره" ?
+                "16,0,78_255,255,255":
+                text == "لجنی" ?
+                "0,75,78_255,255,255":
+                text == "قهوه ای" ?
+                "78,43,0_255,255,255":
+                text == "دریا" ?
+                "0,46,60_255,255,255":
+                text == "نارنجی" ?
+                "175,73,0_255,255,255":
+                text == "فسفری" ?
+                "52,255,208_0,0,0":
+                text == "بنفش روشن" ?
+                "255,52,249_0,0,0":
+                text == "زرد روشن" ?
+                "233,255,52_0,0,0":
+                "_255,255,255"
+                ;
+            if (month > 0 && day > 0 && Classes.global_inf.cat_id !=0) 
+            {
+                if (Classes.Helper.DB.GET_BOOL($"SELECT * FROM freedays WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id} AND cat_id = {Classes.global_inf.cat_id}"))
+                {
+                    Classes.Helper.DB.SQL_QUERY($"UPDATE freedays SET color='{color}' WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id} AND cat_id = {Classes.global_inf.cat_id}");
+                    this.Set_Year();
+                    return;
+                }
+                Classes.Helper.DB.SQL_QUERY($"INSERT INTO freedays (D,M,Y,color,user_id,cat_id) VALUES({day},{month},{year},'{color}',{Classes.global_inf.user_id},{Classes.global_inf.cat_id})");
+                this.Set_Year();
+            }
+        }
+
+        private void حذفرنگToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (month > 0 && day > 0 && Classes.global_inf.cat_id != 0)
+            {
+                
+                Classes.Helper.DB.SQL_QUERY($"DELETE FROM freedays WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id} AND cat_id = {Classes.global_inf.cat_id}");
+                this.Set_Year();
             }
         }
 
@@ -262,3 +388,4 @@ namespace opacity_forms.Boxes.windows
 
     }
 }
+

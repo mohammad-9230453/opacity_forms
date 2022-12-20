@@ -50,6 +50,8 @@
             this.btn_drop_name = new System.Windows.Forms.Button();
             this.pnl_header = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_time = new System.Windows.Forms.Label();
+            this.lbl_day = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,9 +67,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tik_tok_date_time = new System.Windows.Forms.Timer(this.components);
-            this.lbl_day = new System.Windows.Forms.Label();
-            this.lbl_time = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.date2 = new opacity_forms.Boxes.windows.Date();
             this.panel1.SuspendLayout();
             this.pnl_list.SuspendLayout();
@@ -134,12 +133,13 @@
             this.pnl_drop_3.Controls.Add(this.button11);
             this.pnl_drop_3.Controls.Add(this.btn_drop_3);
             this.pnl_drop_3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_drop_3.Location = new System.Drawing.Point(0, 108);
+            this.pnl_drop_3.Location = new System.Drawing.Point(0, 170);
             this.pnl_drop_3.MaximumSize = new System.Drawing.Size(216, 140);
             this.pnl_drop_3.MinimumSize = new System.Drawing.Size(199, 36);
             this.pnl_drop_3.Name = "pnl_drop_3";
             this.pnl_drop_3.Size = new System.Drawing.Size(199, 36);
             this.pnl_drop_3.TabIndex = 3;
+            this.pnl_drop_3.Visible = false;
             // 
             // button9
             // 
@@ -204,6 +204,7 @@
             this.btn_drop_3.TabIndex = 1;
             this.btn_drop_3.Text = "ثبت برنامه روزانه";
             this.btn_drop_3.UseVisualStyleBackColor = false;
+            this.btn_drop_3.Visible = false;
             this.btn_drop_3.Click += new System.EventHandler(this.btn_drop_name_Click);
             // 
             // pnl_drop_2
@@ -214,12 +215,13 @@
             this.pnl_drop_2.Controls.Add(this.button7);
             this.pnl_drop_2.Controls.Add(this.btn_drop_2);
             this.pnl_drop_2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_drop_2.Location = new System.Drawing.Point(0, 72);
+            this.pnl_drop_2.Location = new System.Drawing.Point(0, 134);
             this.pnl_drop_2.MaximumSize = new System.Drawing.Size(216, 140);
             this.pnl_drop_2.MinimumSize = new System.Drawing.Size(199, 36);
             this.pnl_drop_2.Name = "pnl_drop_2";
             this.pnl_drop_2.Size = new System.Drawing.Size(199, 36);
             this.pnl_drop_2.TabIndex = 2;
+            this.pnl_drop_2.Visible = false;
             // 
             // button5
             // 
@@ -284,6 +286,7 @@
             this.btn_drop_2.TabIndex = 1;
             this.btn_drop_2.Text = "مالی";
             this.btn_drop_2.UseVisualStyleBackColor = false;
+            this.btn_drop_2.Visible = false;
             this.btn_drop_2.Click += new System.EventHandler(this.btn_drop_name_Click);
             // 
             // pnl_drop_name
@@ -295,10 +298,10 @@
             this.pnl_drop_name.Controls.Add(this.btn_drop_name);
             this.pnl_drop_name.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_drop_name.Location = new System.Drawing.Point(0, 36);
-            this.pnl_drop_name.MaximumSize = new System.Drawing.Size(199, 103);
+            this.pnl_drop_name.MaximumSize = new System.Drawing.Size(199, 98);
             this.pnl_drop_name.MinimumSize = new System.Drawing.Size(199, 36);
             this.pnl_drop_name.Name = "pnl_drop_name";
-            this.pnl_drop_name.Size = new System.Drawing.Size(199, 36);
+            this.pnl_drop_name.Size = new System.Drawing.Size(199, 98);
             this.pnl_drop_name.TabIndex = 1;
             // 
             // button4
@@ -390,7 +393,6 @@
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Controls.Add(this.lbl_time);
             this.panel2.Controls.Add(this.lbl_day);
-            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lbl_username);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -400,6 +402,38 @@
             this.panel2.TabIndex = 3;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
+            // 
+            // lbl_time
+            // 
+            this.lbl_time.AutoSize = true;
+            this.lbl_time.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_time.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time.ForeColor = System.Drawing.Color.White;
+            this.lbl_time.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_time.Location = new System.Drawing.Point(181, 0);
+            this.lbl_time.Name = "lbl_time";
+            this.lbl_time.Padding = new System.Windows.Forms.Padding(0, 8, 10, 10);
+            this.lbl_time.Size = new System.Drawing.Size(109, 41);
+            this.lbl_time.TabIndex = 1;
+            this.lbl_time.Text = "23:22:18";
+            this.lbl_time.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
+            this.lbl_time.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
+            // 
+            // lbl_day
+            // 
+            this.lbl_day.AutoSize = true;
+            this.lbl_day.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_day.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_day.ForeColor = System.Drawing.Color.White;
+            this.lbl_day.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_day.Location = new System.Drawing.Point(290, 0);
+            this.lbl_day.Name = "lbl_day";
+            this.lbl_day.Padding = new System.Windows.Forms.Padding(0, 7, 10, 0);
+            this.lbl_day.Size = new System.Drawing.Size(191, 30);
+            this.lbl_day.TabIndex = 1;
+            this.lbl_day.Text = "پنج شنبه 1374/03/16";
+            this.lbl_day.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
+            this.lbl_day.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
             // 
             // label1
             // 
@@ -593,54 +627,6 @@
             this.tik_tok_date_time.Interval = 1000;
             this.tik_tok_date_time.Tick += new System.EventHandler(this.tik_tok_date_time_Tick);
             // 
-            // lbl_day
-            // 
-            this.lbl_day.AutoSize = true;
-            this.lbl_day.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_day.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_day.ForeColor = System.Drawing.Color.White;
-            this.lbl_day.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_day.Location = new System.Drawing.Point(280, 0);
-            this.lbl_day.Name = "lbl_day";
-            this.lbl_day.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.lbl_day.Size = new System.Drawing.Size(181, 30);
-            this.lbl_day.TabIndex = 1;
-            this.lbl_day.Text = "پنج شنبه 1374/03/16";
-            this.lbl_day.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
-            this.lbl_day.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
-            // 
-            // lbl_time
-            // 
-            this.lbl_time.AutoSize = true;
-            this.lbl_time.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_time.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_time.ForeColor = System.Drawing.Color.White;
-            this.lbl_time.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_time.Location = new System.Drawing.Point(171, 0);
-            this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Padding = new System.Windows.Forms.Padding(0, 8, 10, 10);
-            this.lbl_time.Size = new System.Drawing.Size(109, 41);
-            this.lbl_time.TabIndex = 1;
-            this.lbl_time.Text = "23:22:18";
-            this.lbl_time.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
-            this.lbl_time.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("B Titr", 12.75F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label8.Location = new System.Drawing.Point(461, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label8.Size = new System.Drawing.Size(20, 34);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "|";
-            // 
             // date2
             // 
             this.date2.BackColor = System.Drawing.Color.Transparent;
@@ -723,7 +709,6 @@
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Label lbl_day;
         private System.Windows.Forms.Timer tik_tok_date_time;
-        private System.Windows.Forms.Label label8;
     }
 }
 
