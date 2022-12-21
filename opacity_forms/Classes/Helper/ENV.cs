@@ -10,6 +10,10 @@
         public static string PASS = "";//534930
         public static string DB = "ps";//tvco_test
         public static string STR_CONN = $"Server={SERVER}; username={USER}; password={PASS}; database={DB}; SSL Mode=0";
+        public static void SET_CONN()
+        {
+            STR_CONN = $"Server={SERVER}; username={USER}; password={PASS}; database={DB}; SSL Mode=0";
+        }
         //public static string STR_CONN = "Server=185.10.75.8; username=test_tc; password=534930; database=tvco_test; SSL Mode=0";
 
         public static string STR_SERVER = null;
