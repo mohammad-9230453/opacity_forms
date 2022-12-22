@@ -219,6 +219,12 @@
       <DependentUpon>set_person_access_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Boxes\Login\login_helper.cs" />
+    <Compile Include="Boxes\windows\EnDates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Boxes\windows\EnDates.Designer.cs">
+      <DependentUpon>EnDates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Boxes\windows\Date.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Boxes\windows\Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\windows\EnDates.resx">
+      <DependentUpon>EnDates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Boxes\windows\Date.resx">
       <DependentUpon>Date.cs</DependentUpon>
@@ -774,6 +783,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1486504340-calendar-date-event-month-schedule_81325.ico" />
+    <None Include="Resources\pexels-toni-cuenca-688573.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -483,6 +483,49 @@ namespace opacity_forms.Classes.Helper
             }
             return null;
         }
+        public static string TO_STR_EnMONTH(int m)
+        {
+            switch (m)
+            {
+                case 1:
+                    return "ژانویه";
+                    break;
+                case 2:
+                    return "فوریه";
+                    break;
+                case 3:
+                    return "مارچ";
+                    break;
+                case 4:
+                    return "آپریل";
+                    break;
+                case 5:
+                    return "می";
+                    break;
+                case 6:
+                    return "ژوئن";
+                    break;
+                case 7:
+                    return "جولای";
+                    break;
+                case 8:
+                    return "آگوست";
+                    break;
+                case 9:
+                    return "سپتامبر";
+                    break;
+                case 10:
+                    return "اکتبر";
+                    break;
+                case 11:
+                    return "نوامبر";
+                    break;
+                case 12:
+                    return "دسامبر";
+                    break;
+            }
+            return null;
+        }
 
 
     }

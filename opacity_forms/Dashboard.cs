@@ -97,6 +97,7 @@ namespace opacity_forms
         {
             { "btn_تنضیمات" , "setting_box" },
             { "btn_ثبت_برنامه_روزانه" , "date2" },
+            { "روزانه_خارجی" , "enDates1" },
         };
         Button last_btn = null;
         Color last_color;
@@ -395,34 +396,35 @@ namespace opacity_forms
             switch (date = pc.GetDayOfWeek(dt).ToString().ToLower())
             {
                 case "monday":
-                    date = "دوشنبه";
+                    date = "monday دوشنبه";
                     break;
                 case "tuesday":
-                    date = "سه شنبه";
+                    date = "tuesday سه شنبه";
                     break;
                 case "wednesday":
-                    date = "چهارشنبه";
+                    date = "wednesday چهارشنبه";
                     break;
                 case "thursday":
-                    date = "پنجشنبه";
+                    date = "thursday پنجشنبه";
                     break;
                 case "friday":
-                    date = "جمعه";
+                    date = "friday جمعه";
                     break;
                 case "saturday":
-                    date = "شنبه";
+                    date = "saturday شنبه";
                     break;
                 case "sunday":
-                    date = "یکشنبه";
+                    date = "sunday یکشنبه";
                     break;
             }
 
-            date += $" {pc.GetYear(dt)}/{pc.GetMonth(dt)}/{pc.GetDayOfMonth(dt)} ";
+            date += $" {pc.GetYear(dt)}/{pc.GetMonth(dt)}/{pc.GetDayOfMonth(dt)} | {dt.Year}/{dt.Month}/{dt.Day} ";
             if (lbl_day.Text != date) 
             {
                 lbl_day.Text = date;
                 Classes.global_inf.today = dt;
                 this.date2.Set_Year();
+                this.enDates1.Set_Year();
             }
         }
     }

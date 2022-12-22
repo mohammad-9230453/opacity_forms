@@ -437,7 +437,15 @@ namespace opacity_forms.Boxes.windows.helper
             {
                 Classes.global_inf.cat_id = int.Parse(this.table_categories.Rows[table_categories.SelectedCells[0].RowIndex].Cells["id"].Value.ToString());
                 Dashboard _Home = Application.OpenForms["Dashboard"] as Dashboard;
-                _Home.date2.Set_Year();
+
+                //if (_Home.date2.Visible)
+                    _Home.date2.Set_Year();
+                //else { _Home.date2.Visible = true; _Home.date2.Set_Year();  _Home.enDates1.Visible = false; }
+
+                //if (_Home.enDates1.Visible)
+                    _Home.enDates1.Set_Year();
+                //else { _Home.enDates1.Visible = true; _Home.enDates1.Set_Year();  _Home.enDates1.Visible = false; }
+
                 _Home.headersLoad();
                 //alert.alert("دسته بندی با موفقیت انتخاب شد", Alert.Right_side.enmType.success);
             }

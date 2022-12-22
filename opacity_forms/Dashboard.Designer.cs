@@ -44,7 +44,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.btn_drop_2 = new System.Windows.Forms.Button();
             this.pnl_drop_name = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.روزانه_خارجی = new System.Windows.Forms.Button();
             this.btn_مدیریت_دسته_بندی_ها = new System.Windows.Forms.Button();
             this.btn_ثبت_برنامه_روزانه = new System.Windows.Forms.Button();
             this.btn_drop_name = new System.Windows.Forms.Button();
@@ -67,6 +67,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tik_tok_date_time = new System.Windows.Forms.Timer(this.components);
+            this.enDates1 = new opacity_forms.Boxes.windows.EnDates();
             this.date2 = new opacity_forms.Boxes.windows.Date();
             this.panel1.SuspendLayout();
             this.pnl_list.SuspendLayout();
@@ -100,6 +101,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.enDates1);
             this.panel1.Controls.Add(this.date2);
             this.panel1.Controls.Add(this.pnl_list);
             this.panel1.Controls.Add(this.pnl_header);
@@ -133,7 +135,7 @@
             this.pnl_drop_3.Controls.Add(this.button11);
             this.pnl_drop_3.Controls.Add(this.btn_drop_3);
             this.pnl_drop_3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_drop_3.Location = new System.Drawing.Point(0, 170);
+            this.pnl_drop_3.Location = new System.Drawing.Point(0, 227);
             this.pnl_drop_3.MaximumSize = new System.Drawing.Size(216, 140);
             this.pnl_drop_3.MinimumSize = new System.Drawing.Size(199, 36);
             this.pnl_drop_3.Name = "pnl_drop_3";
@@ -215,7 +217,7 @@
             this.pnl_drop_2.Controls.Add(this.button7);
             this.pnl_drop_2.Controls.Add(this.btn_drop_2);
             this.pnl_drop_2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_drop_2.Location = new System.Drawing.Point(0, 134);
+            this.pnl_drop_2.Location = new System.Drawing.Point(0, 191);
             this.pnl_drop_2.MaximumSize = new System.Drawing.Size(216, 140);
             this.pnl_drop_2.MinimumSize = new System.Drawing.Size(199, 36);
             this.pnl_drop_2.Name = "pnl_drop_2";
@@ -292,34 +294,34 @@
             // pnl_drop_name
             // 
             this.pnl_drop_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(3)))), ((int)(((byte)(56)))));
-            this.pnl_drop_name.Controls.Add(this.button4);
+            this.pnl_drop_name.Controls.Add(this.روزانه_خارجی);
             this.pnl_drop_name.Controls.Add(this.btn_مدیریت_دسته_بندی_ها);
             this.pnl_drop_name.Controls.Add(this.btn_ثبت_برنامه_روزانه);
             this.pnl_drop_name.Controls.Add(this.btn_drop_name);
             this.pnl_drop_name.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_drop_name.Location = new System.Drawing.Point(0, 36);
-            this.pnl_drop_name.MaximumSize = new System.Drawing.Size(199, 98);
+            this.pnl_drop_name.MaximumSize = new System.Drawing.Size(199, 155);
             this.pnl_drop_name.MinimumSize = new System.Drawing.Size(199, 36);
             this.pnl_drop_name.Name = "pnl_drop_name";
-            this.pnl_drop_name.Size = new System.Drawing.Size(199, 98);
+            this.pnl_drop_name.Size = new System.Drawing.Size(199, 155);
             this.pnl_drop_name.TabIndex = 1;
             // 
-            // button4
+            // روزانه_خارجی
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(3)))), ((int)(((byte)(56)))));
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("MV Boli", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(0, 94);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(199, 29);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "دسته بندیها";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.روزانه_خارجی.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(3)))), ((int)(((byte)(56)))));
+            this.روزانه_خارجی.Dock = System.Windows.Forms.DockStyle.Top;
+            this.روزانه_خارجی.FlatAppearance.BorderSize = 0;
+            this.روزانه_خارجی.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.روزانه_خارجی.Font = new System.Drawing.Font("MV Boli", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.روزانه_خارجی.ForeColor = System.Drawing.Color.White;
+            this.روزانه_خارجی.Location = new System.Drawing.Point(0, 94);
+            this.روزانه_خارجی.Margin = new System.Windows.Forms.Padding(2);
+            this.روزانه_خارجی.Name = "روزانه_خارجی";
+            this.روزانه_خارجی.Size = new System.Drawing.Size(199, 29);
+            this.روزانه_خارجی.TabIndex = 4;
+            this.روزانه_خارجی.Text = "روزانه خارجی";
+            this.روزانه_خارجی.UseVisualStyleBackColor = false;
+            this.روزانه_خارجی.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_مدیریت_دسته_بندی_ها
             // 
@@ -336,8 +338,7 @@
             this.btn_مدیریت_دسته_بندی_ها.TabIndex = 3;
             this.btn_مدیریت_دسته_بندی_ها.Text = "مدیریت دسته بندی ها";
             this.btn_مدیریت_دسته_بندی_ها.UseVisualStyleBackColor = false;
-            this.btn_مدیریت_دسته_بندی_ها.Visible = false;
-            this.btn_مدیریت_دسته_بندی_ها.Click += new System.EventHandler(this.button1_Click);
+            this.btn_مدیریت_دسته_بندی_ها.Click += new System.EventHandler(this.button4_Click);
             // 
             // btn_ثبت_برنامه_روزانه
             // 
@@ -396,9 +397,9 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lbl_username);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(392, 0);
+            this.panel2.Location = new System.Drawing.Point(174, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(667, 39);
+            this.panel2.Size = new System.Drawing.Size(885, 39);
             this.panel2.TabIndex = 3;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
@@ -410,7 +411,7 @@
             this.lbl_time.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_time.ForeColor = System.Drawing.Color.White;
             this.lbl_time.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_time.Location = new System.Drawing.Point(181, 0);
+            this.lbl_time.Location = new System.Drawing.Point(399, 0);
             this.lbl_time.Name = "lbl_time";
             this.lbl_time.Padding = new System.Windows.Forms.Padding(0, 8, 10, 10);
             this.lbl_time.Size = new System.Drawing.Size(109, 41);
@@ -426,7 +427,7 @@
             this.lbl_day.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold);
             this.lbl_day.ForeColor = System.Drawing.Color.White;
             this.lbl_day.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_day.Location = new System.Drawing.Point(290, 0);
+            this.lbl_day.Location = new System.Drawing.Point(508, 0);
             this.lbl_day.Name = "lbl_day";
             this.lbl_day.Padding = new System.Windows.Forms.Padding(0, 7, 10, 0);
             this.lbl_day.Size = new System.Drawing.Size(191, 30);
@@ -443,7 +444,7 @@
             this.label1.Font = new System.Drawing.Font("B Titr", 12.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(481, 0);
+            this.label1.Location = new System.Drawing.Point(699, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
@@ -462,7 +463,7 @@
             this.lbl_username.Font = new System.Drawing.Font("B Titr", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lbl_username.ForeColor = System.Drawing.Color.White;
             this.lbl_username.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_username.Location = new System.Drawing.Point(571, 0);
+            this.lbl_username.Location = new System.Drawing.Point(789, 0);
             this.lbl_username.Margin = new System.Windows.Forms.Padding(0);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Padding = new System.Windows.Forms.Padding(0, 3, 6, 0);
@@ -627,6 +628,16 @@
             this.tik_tok_date_time.Interval = 1000;
             this.tik_tok_date_time.Tick += new System.EventHandler(this.tik_tok_date_time_Tick);
             // 
+            // enDates1
+            // 
+            this.enDates1.BackColor = System.Drawing.Color.Transparent;
+            this.enDates1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enDates1.Location = new System.Drawing.Point(0, 39);
+            this.enDates1.Name = "enDates1";
+            this.enDates1.Size = new System.Drawing.Size(907, 540);
+            this.enDates1.TabIndex = 6;
+            this.enDates1.Visible = false;
+            // 
             // date2
             // 
             this.date2.BackColor = System.Drawing.Color.Transparent;
@@ -642,7 +653,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BackgroundImage = global::opacity_forms.Properties.Resources.pexels_yulia_ilina_10726978;
+            this.BackgroundImage = global::opacity_forms.Properties.Resources.pexels_toni_cuenca_688573;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 603);
             this.Controls.Add(this.panel1);
@@ -677,7 +688,7 @@
         private System.Windows.Forms.Panel pnl_list;
         private System.Windows.Forms.Panel pnl_drop_name;
         private System.Windows.Forms.Button btn_drop_name;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button روزانه_خارجی;
         private System.Windows.Forms.Button btn_مدیریت_دسته_بندی_ها;
         private System.Windows.Forms.Button btn_ثبت_برنامه_روزانه;
         private System.Windows.Forms.Timer timer1;
@@ -709,6 +720,7 @@
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Label lbl_day;
         private System.Windows.Forms.Timer tik_tok_date_time;
+        public Boxes.windows.EnDates enDates1;
     }
 }
 

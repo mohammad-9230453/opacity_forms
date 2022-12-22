@@ -693,6 +693,16 @@ namespace opacity_forms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pexels_toni_cuenca_688573 {
+            get {
+                object obj = ResourceManager.GetObject("pexels-toni-cuenca-688573", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pexels_yulia_ilina_10726978 {
             get {
                 object obj = ResourceManager.GetObject("pexels-yulia-ilina-10726978", resourceCulture);

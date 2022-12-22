@@ -52,6 +52,7 @@ namespace opacity_forms.Boxes.Forms.messege
 
 
         }
+        public string FarsiOrEn = null;
         Boxes.Alert.Alert alert = new Alert.Alert();
         List<Classes.model.test> tests = new List<Classes.model.test>();
         //List<Classes.model.messages> messages = new List<Classes.model.messages>();
@@ -59,17 +60,24 @@ namespace opacity_forms.Boxes.Forms.messege
         bool evry_week, evry_day, evry_month, evry_year, has_end;
         private void setPnlBoxBoxes()
         {
-
+            string[] arr;
             this.pnl_list.Controls.Clear();
-            DataTable dt = Classes.Helper.DB.GET_DATA_TABLE($"SELECT * FROM messages WHERE (Y=-1 OR Y={Y})AND(M=-1 OR M={M})AND((D=-1) OR (D={D} AND W=-1)OR(W={W} AND D!=-1))AND(has_end=0 OR (has_end=1 AND end_date>='{date.Year.ToString()}/{date.Month.ToString()}/{date.Day.ToString()}' AND date<='{date.Year.ToString()}/{date.Month.ToString()}/{date.Day.ToString()}')) AND cat_id={Classes.global_inf.cat_id}");
+            DataTable dt = Classes.Helper.DB.GET_DATA_TABLE($"SELECT * FROM {FarsiOrEn}messages WHERE (Y=-1 OR Y={Y})AND(M=-1 OR M={M})AND((D=-1) OR (D={D} AND W=-1)OR(W={W} AND D!=-1))AND(has_end=0 OR (has_end=1 AND end_date>='{date.Year.ToString()}/{date.Month.ToString()}/{date.Day.ToString()}' AND date<='{date.Year.ToString()}/{date.Month.ToString()}/{date.Day.ToString()}')) AND cat_id={Classes.global_inf.cat_id}");
             if (dt.Rows.Count > 0)
             {
-                Classes.Helper.Function.FIX_DT_DATE(dt, new[] { "date", "end_date" });
+                if(FarsiOrEn != "en")Classes.Helper.Function.FIX_DT_DATE(dt, new[] { "date", "end_date" });
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     id = dt.Rows[i]["id"].ToString();
                     end_date = dt.Rows[i]["end_date"].ToString();
                     makeDate_ = dt.Rows[i]["date"].ToString();
+                    if (FarsiOrEn == "en") 
+                    {
+                        arr = dt.Rows[i]["end_date"].ToString().Split(' ')[0].Split('/');
+                        end_date = $"{arr[2]}/{arr[0]}/{arr[1]}";
+                        arr = dt.Rows[i]["date"].ToString().Split(' ')[0].Split('/');
+                        makeDate_ = $"{arr[2]}/{arr[0]}/{arr[1]}";
+                    }
                     msg = dt.Rows[i]["msg"].ToString();
                     evry_week = dt.Rows[i]["W"].ToString().Trim() != "-1";
                     evry_day = dt.Rows[i]["D"].ToString().Trim() == "-1";
@@ -81,7 +89,10 @@ namespace opacity_forms.Boxes.Forms.messege
             }
 
             Dashboard _Home = Application.OpenForms["Dashboard"] as Dashboard;
-            _Home.date2.Set_Year();
+            if (FarsiOrEn == "en")
+                _Home.enDates1.Set_Year();
+            else
+                _Home.date2.Set_Year();
         }
         private void setNewBOX()
         {
@@ -358,7 +369,7 @@ namespace opacity_forms.Boxes.Forms.messege
         private void btn_add_Click(object sender, EventArgs e)
         {
             string msg_, W_, D_, M_, Y_, has_end_, end_date_, date_;
-            bool flag;
+            bool flag , is_en = FarsiOrEn == "en";
             DateTime dateTime = DateTime.UtcNow.ToLocalTime();
             string[] end_arr; int i, j, k;
             if (txt_msg.Text.Length == 0 || txt_msg.Text.Length > 500)
@@ -380,7 +391,8 @@ namespace opacity_forms.Boxes.Forms.messege
                     {
                         if (int.Parse(end_arr[2]) <= pc.GetDaysInMonth(int.Parse(end_arr[0]), int.Parse(end_arr[1])))
                         {
-                            if ((new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]), (new PersianCalendar()))) >= date) flag = true;
+                            if ( !is_en &&  (new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]), (new PersianCalendar()))) >= date) flag = true;
+                            if ( is_en &&  (new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]))) >= date) flag = true;
                         }
                     }
                 }
@@ -390,6 +402,7 @@ namespace opacity_forms.Boxes.Forms.messege
                     return;
                 }
                 dateTime = new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]), (new PersianCalendar()));
+                if (is_en) dateTime = new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]));
             }
 
             if (select_everyDay.Checked)
@@ -412,7 +425,7 @@ namespace opacity_forms.Boxes.Forms.messege
                 alert.shortAlert("شما هنوز دسته بندی ای را انتخاب نکرده اید", Alert.topShort.enmtype.error);
                 return;
             }
-            Classes.Helper.DB.SQL_QUERY($"INSERT INTO messages (Y,M,D,W,has_end,end_date,date,msg,cat_id)" +
+            Classes.Helper.DB.SQL_QUERY($"INSERT INTO {FarsiOrEn}messages (Y,M,D,W,has_end,end_date,date,msg,cat_id)" +
                                                         $"VALUES({Y_},{M_},{D_},{W_},{has_end_},'{end_date_}','{date_}','{msg_}',{Classes.global_inf.cat_id})");
             setPnlBoxBoxes();
 
@@ -426,7 +439,7 @@ namespace opacity_forms.Boxes.Forms.messege
             //pnl_list.Controls.Remove(item);
             if (MessageBox.Show("مطمعن هستین که میخایید این فیلد رو حذف کنید؟", "حذف", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                Classes.Helper.DB.SQL_QUERY($"DELETE FROM messages  WHERE id={id}");
+                Classes.Helper.DB.SQL_QUERY($"DELETE FROM {FarsiOrEn}messages  WHERE id={id}");
                 setPnlBoxBoxes();
             }
         }
@@ -435,9 +448,9 @@ namespace opacity_forms.Boxes.Forms.messege
         {
             string msg_, W_, D_, M_, Y_, has_end_, end_date_, date_, id_ = (sender as Button).Name.Split('_')[1];
             string[] end_arr; int i, j, k;
-            bool flag;
+            bool flag , is_en = FarsiOrEn == "en";
             DateTime dateTime = DateTime.UtcNow.ToLocalTime();
-            string str_date = Classes.Helper.DB.GET_STR($"SELECT date FROM messages WHERE id={id_}", "date");
+            string str_date = Classes.Helper.DB.GET_STR($"SELECT date FROM {FarsiOrEn}messages WHERE id={id_}", "date");
             PersianCalendar pc = new PersianCalendar();
             DateTime _date = DateTime.Parse(str_date.Split(' ')[0],
                       System.Globalization.CultureInfo.InvariantCulture);
@@ -471,8 +484,8 @@ namespace opacity_forms.Boxes.Forms.messege
                     {
                         if (int.Parse(end_arr[2]) <= pc.GetDaysInMonth(int.Parse(end_arr[0]), int.Parse(end_arr[1])))
                         {
-                            if ((new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]), (new PersianCalendar()))) >= date) flag = true;
-                        }
+                            if (!is_en && (new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]), (new PersianCalendar()))) >= date) flag = true;
+                        }   if ( is_en &&  (new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]))) >= date) flag = true;
                     }
                 }
                 if (!flag)
@@ -481,6 +494,7 @@ namespace opacity_forms.Boxes.Forms.messege
                     return;
                 }
                 dateTime = new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]), (new PersianCalendar()));
+                if (is_en) dateTime = new DateTime(int.Parse(end_arr[0]), int.Parse(end_arr[1]), int.Parse(end_arr[2]));
             }
 
             if (selectEveryDay_.Checked)
@@ -498,7 +512,7 @@ namespace opacity_forms.Boxes.Forms.messege
                 $"{dateTime.Year}/{dateTime.Month}/{dateTime.Day}"
                 : $"{DateTime.UtcNow.Year}/{DateTime.UtcNow.Month}/{DateTime.UtcNow.Day}";
             date_ = $"{date.Year}/{date.Month}/{date.Day}";
-            Classes.Helper.DB.SQL_QUERY($"UPDATE messages SET Y={Y_},M={M_},D={D_},W={W_},has_end={has_end_},end_date='{end_date_}',msg='{msg_}' WHERE id={id_}");
+            Classes.Helper.DB.SQL_QUERY($"UPDATE {FarsiOrEn}messages SET Y={Y_},M={M_},D={D_},W={W_},has_end={has_end_},end_date='{end_date_}',msg='{msg_}' WHERE id={id_}");
             setPnlBoxBoxes();
 
         }
@@ -516,7 +530,9 @@ namespace opacity_forms.Boxes.Forms.messege
         private void message_Load(object sender, EventArgs e)
         {
             lbl_day.Text = D;
+            
             lbl_month.Text = Classes.Helper.Function.TO_STR_MONTH(int.Parse(M));
+            if (FarsiOrEn == "en")lbl_month.Text = date.ToString(" MMMM ");
             lbl_week.Text = WEEK;
             lbl_year.Text = Y;
             setPnlBoxBoxes();

@@ -238,6 +238,7 @@ namespace opacity_forms.Boxes.windows
                 msg.D = day.ToString();
                 msg.M = month.ToString();
                 msg.date = dt;
+                msg.FarsiOrEn = null;
                 msg.ShowDialog(this);
             }
         }
