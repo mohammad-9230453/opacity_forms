@@ -85,6 +85,17 @@
             this.آبیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.بنفشToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.زردToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفرنگToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.بنفش2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.سرمهایToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.آبیتیرهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.لجنیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.نارنجیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.دریاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.نارنجیToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.فسفریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.بنفشروشنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.زردروشنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel7 = new System.Windows.Forms.Panel();
             this.M6_table = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,17 +212,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.M8_table = new System.Windows.Forms.DataGridView();
-            this.حذفرنگToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.بنفش2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.سرمهایToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.آبیتیرهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.لجنیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.نارنجیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.دریاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.نارنجیToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.فسفریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.بنفشروشنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.زردروشنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.c01ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.c02ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.c03ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.c04ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.c05ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.c06ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.c07ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.M7_table)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -417,10 +424,18 @@
             this.نارنجیToolStripMenuItem1,
             this.فسفریToolStripMenuItem,
             this.بنفشروشنToolStripMenuItem,
-            this.زردروشنToolStripMenuItem});
+            this.زردروشنToolStripMenuItem,
+            this.c01ToolStripMenuItem,
+            this.c02ToolStripMenuItem,
+            this.c03ToolStripMenuItem,
+            this.c04ToolStripMenuItem,
+            this.c05ToolStripMenuItem,
+            this.c06ToolStripMenuItem,
+            this.c07ToolStripMenuItem});
             this.تعیینرنگToolStripMenuItem.Name = "تعیینرنگToolStripMenuItem";
             this.تعیینرنگToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.تعیینرنگToolStripMenuItem.Text = "تعیین رنگ";
+            this.تعیینرنگToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
             // مشکیToolStripMenuItem
             // 
@@ -466,6 +481,101 @@
             this.زردToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.زردToolStripMenuItem.Text = "زرد";
             this.زردToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // حذفرنگToolStripMenuItem
+            // 
+            this.حذفرنگToolStripMenuItem.Name = "حذفرنگToolStripMenuItem";
+            this.حذفرنگToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.حذفرنگToolStripMenuItem.Text = "حذف رنگ";
+            this.حذفرنگToolStripMenuItem.Click += new System.EventHandler(this.حذفرنگToolStripMenuItem_Click);
+            // 
+            // بنفش2ToolStripMenuItem
+            // 
+            this.بنفش2ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(0)))), ((int)(((byte)(76)))));
+            this.بنفش2ToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.بنفش2ToolStripMenuItem.Name = "بنفش2ToolStripMenuItem";
+            this.بنفش2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.بنفش2ToolStripMenuItem.Text = "بنفش2";
+            this.بنفش2ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // سرمهایToolStripMenuItem
+            // 
+            this.سرمهایToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(0)))), ((int)(((byte)(78)))));
+            this.سرمهایToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.سرمهایToolStripMenuItem.Name = "سرمهایToolStripMenuItem";
+            this.سرمهایToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.سرمهایToolStripMenuItem.Text = "سرمه ای";
+            this.سرمهایToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // آبیتیرهToolStripMenuItem
+            // 
+            this.آبیتیرهToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(0)))), ((int)(((byte)(78)))));
+            this.آبیتیرهToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.آبیتیرهToolStripMenuItem.Name = "آبیتیرهToolStripMenuItem";
+            this.آبیتیرهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.آبیتیرهToolStripMenuItem.Text = "آبی تیره";
+            this.آبیتیرهToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // لجنیToolStripMenuItem
+            // 
+            this.لجنیToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(78)))));
+            this.لجنیToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.لجنیToolStripMenuItem.Name = "لجنیToolStripMenuItem";
+            this.لجنیToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.لجنیToolStripMenuItem.Text = "لجنی";
+            this.لجنیToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // نارنجیToolStripMenuItem
+            // 
+            this.نارنجیToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(43)))), ((int)(((byte)(0)))));
+            this.نارنجیToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.نارنجیToolStripMenuItem.Name = "نارنجیToolStripMenuItem";
+            this.نارنجیToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.نارنجیToolStripMenuItem.Text = "قهوه ای";
+            this.نارنجیToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // دریاToolStripMenuItem
+            // 
+            this.دریاToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(60)))));
+            this.دریاToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.دریاToolStripMenuItem.Name = "دریاToolStripMenuItem";
+            this.دریاToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.دریاToolStripMenuItem.Text = "دریا";
+            this.دریاToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // نارنجیToolStripMenuItem1
+            // 
+            this.نارنجیToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(73)))), ((int)(((byte)(0)))));
+            this.نارنجیToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.نارنجیToolStripMenuItem1.Name = "نارنجیToolStripMenuItem1";
+            this.نارنجیToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.نارنجیToolStripMenuItem1.Text = "نارنجی";
+            this.نارنجیToolStripMenuItem1.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // فسفریToolStripMenuItem
+            // 
+            this.فسفریToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(255)))), ((int)(((byte)(208)))));
+            this.فسفریToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.فسفریToolStripMenuItem.Name = "فسفریToolStripMenuItem";
+            this.فسفریToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.فسفریToolStripMenuItem.Text = "فسفری";
+            this.فسفریToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // بنفشروشنToolStripMenuItem
+            // 
+            this.بنفشروشنToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(52)))), ((int)(((byte)(249)))));
+            this.بنفشروشنToolStripMenuItem.Name = "بنفشروشنToolStripMenuItem";
+            this.بنفشروشنToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.بنفشروشنToolStripMenuItem.Text = "بنفش روشن";
+            this.بنفشروشنToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            // 
+            // زردروشنToolStripMenuItem
+            // 
+            this.زردروشنToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(52)))));
+            this.زردروشنToolStripMenuItem.Name = "زردروشنToolStripMenuItem";
+            this.زردروشنToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.زردروشنToolStripMenuItem.Text = "زرد روشن";
+            this.زردروشنToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
             // panel7
             // 
@@ -1992,100 +2102,61 @@
             this.M8_table.TabIndex = 0;
             this.M8_table.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.M1_table_CellMouseDown);
             // 
-            // حذفرنگToolStripMenuItem
+            // c01ToolStripMenuItem
             // 
-            this.حذفرنگToolStripMenuItem.Name = "حذفرنگToolStripMenuItem";
-            this.حذفرنگToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.حذفرنگToolStripMenuItem.Text = "حذف رنگ";
-            this.حذفرنگToolStripMenuItem.Click += new System.EventHandler(this.حذفرنگToolStripMenuItem_Click);
+            this.c01ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(187)))), ((int)(((byte)(255)))));
+            this.c01ToolStripMenuItem.Name = "c01ToolStripMenuItem";
+            this.c01ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.c01ToolStripMenuItem.Text = "c01";
+            this.c01ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
-            // بنفش2ToolStripMenuItem
+            // c02ToolStripMenuItem
             // 
-            this.بنفش2ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(0)))), ((int)(((byte)(76)))));
-            this.بنفش2ToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.بنفش2ToolStripMenuItem.Name = "بنفش2ToolStripMenuItem";
-            this.بنفش2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.بنفش2ToolStripMenuItem.Text = "بنفش2";
-            this.بنفش2ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            this.c02ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            this.c02ToolStripMenuItem.Name = "c02ToolStripMenuItem";
+            this.c02ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.c02ToolStripMenuItem.Text = "c02";
+            this.c02ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
-            // سرمهایToolStripMenuItem
+            // c03ToolStripMenuItem
             // 
-            this.سرمهایToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(0)))), ((int)(((byte)(78)))));
-            this.سرمهایToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.سرمهایToolStripMenuItem.Name = "سرمهایToolStripMenuItem";
-            this.سرمهایToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.سرمهایToolStripMenuItem.Text = "سرمه ای";
-            this.سرمهایToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            this.c03ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(231)))));
+            this.c03ToolStripMenuItem.Name = "c03ToolStripMenuItem";
+            this.c03ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.c03ToolStripMenuItem.Text = "c03";
+            this.c03ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
-            // آبیتیرهToolStripMenuItem
+            // c04ToolStripMenuItem
             // 
-            this.آبیتیرهToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(0)))), ((int)(((byte)(78)))));
-            this.آبیتیرهToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.آبیتیرهToolStripMenuItem.Name = "آبیتیرهToolStripMenuItem";
-            this.آبیتیرهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.آبیتیرهToolStripMenuItem.Text = "آبی تیره";
-            this.آبیتیرهToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            this.c04ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(255)))), ((int)(((byte)(246)))));
+            this.c04ToolStripMenuItem.Name = "c04ToolStripMenuItem";
+            this.c04ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.c04ToolStripMenuItem.Text = "c04";
+            this.c04ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
-            // لجنیToolStripMenuItem
+            // c05ToolStripMenuItem
             // 
-            this.لجنیToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(78)))));
-            this.لجنیToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.لجنیToolStripMenuItem.Name = "لجنیToolStripMenuItem";
-            this.لجنیToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.لجنیToolStripMenuItem.Text = "لجنی";
-            this.لجنیToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            this.c05ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(187)))));
+            this.c05ToolStripMenuItem.Name = "c05ToolStripMenuItem";
+            this.c05ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.c05ToolStripMenuItem.Text = "c05";
+            this.c05ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
-            // نارنجیToolStripMenuItem
+            // c06ToolStripMenuItem
             // 
-            this.نارنجیToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(43)))), ((int)(((byte)(0)))));
-            this.نارنجیToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.نارنجیToolStripMenuItem.Name = "نارنجیToolStripMenuItem";
-            this.نارنجیToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.نارنجیToolStripMenuItem.Text = "قهوه ای";
-            this.نارنجیToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            this.c06ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(255)))), ((int)(((byte)(217)))));
+            this.c06ToolStripMenuItem.Name = "c06ToolStripMenuItem";
+            this.c06ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.c06ToolStripMenuItem.Text = "c06";
+            this.c06ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
-            // دریاToolStripMenuItem
+            // c07ToolStripMenuItem
             // 
-            this.دریاToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(60)))));
-            this.دریاToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.دریاToolStripMenuItem.Name = "دریاToolStripMenuItem";
-            this.دریاToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.دریاToolStripMenuItem.Text = "دریا";
-            this.دریاToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
-            // 
-            // نارنجیToolStripMenuItem1
-            // 
-            this.نارنجیToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(73)))), ((int)(((byte)(0)))));
-            this.نارنجیToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.نارنجیToolStripMenuItem1.Name = "نارنجیToolStripMenuItem1";
-            this.نارنجیToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.نارنجیToolStripMenuItem1.Text = "نارنجی";
-            this.نارنجیToolStripMenuItem1.Click += new System.EventHandler(this.Color_Click);
-            // 
-            // فسفریToolStripMenuItem
-            // 
-            this.فسفریToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(255)))), ((int)(((byte)(208)))));
-            this.فسفریToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.فسفریToolStripMenuItem.Name = "فسفریToolStripMenuItem";
-            this.فسفریToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.فسفریToolStripMenuItem.Text = "فسفری";
-            this.فسفریToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
-            // 
-            // بنفشروشنToolStripMenuItem
-            // 
-            this.بنفشروشنToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(52)))), ((int)(((byte)(249)))));
-            this.بنفشروشنToolStripMenuItem.Name = "بنفشروشنToolStripMenuItem";
-            this.بنفشروشنToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.بنفشروشنToolStripMenuItem.Text = "بنفش روشن";
-            this.بنفشروشنToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
-            // 
-            // زردروشنToolStripMenuItem
-            // 
-            this.زردروشنToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(52)))));
-            this.زردروشنToolStripMenuItem.Name = "زردروشنToolStripMenuItem";
-            this.زردروشنToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.زردروشنToolStripMenuItem.Text = "زرد روشن";
-            this.زردروشنToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
+            this.c07ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(243)))));
+            this.c07ToolStripMenuItem.Name = "c07ToolStripMenuItem";
+            this.c07ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.c07ToolStripMenuItem.Text = "c07";
+            this.c07ToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
             // Date
             // 
@@ -2278,5 +2349,12 @@
         private System.Windows.Forms.ToolStripMenuItem فسفریToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem بنفشروشنToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem زردروشنToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem c01ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem c02ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem c03ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem c04ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem c05ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem c06ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem c07ToolStripMenuItem;
     }
 }
