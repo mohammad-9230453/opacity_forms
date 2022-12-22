@@ -428,6 +428,8 @@ namespace opacity_forms.Boxes.Forms.messege
             Classes.Helper.DB.SQL_QUERY($"INSERT INTO {FarsiOrEn}messages (Y,M,D,W,has_end,end_date,date,msg,cat_id)" +
                                                         $"VALUES({Y_},{M_},{D_},{W_},{has_end_},'{end_date_}','{date_}','{msg_}',{Classes.global_inf.cat_id})");
             setPnlBoxBoxes();
+            txt_msg.Text = txt_endDate.Text = null;
+            select_everyDay.Checked = select_every_month.Checked = select_every_year.Checked = select_hasEnd.Checked = select_every_week.Checked = false;
 
         }
 
