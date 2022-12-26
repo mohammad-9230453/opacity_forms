@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 20, 2022 at 03:17 PM
+-- Generation Time: Dec 26, 2022 at 10:20 AM
 -- Server version: 8.0.27
 -- PHP Version: 8.1.0
 
@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `accesses`;
 CREATE TABLE IF NOT EXISTS `accesses` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `parent_id` int NOT NULL DEFAULT '0' COMMENT 'بخش_0 ',
-  `deep` int NOT NULL DEFAULT '0' COMMENT '\r\nبخش_0 \r\nقسمت_1 \r\nدسترسی_2',
+  `deep` int NOT NULL DEFAULT '0' COMMENT 'بخش_0 \r\nقسمت_1 \r\nدسترسی_2',
   `situation` int NOT NULL DEFAULT '1' COMMENT 'true_1 false_0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `accesses`
@@ -55,11 +55,11 @@ INSERT INTO `accesses` (`id`, `name`, `parent_id`, `deep`, `situation`) VALUES
 DROP TABLE IF EXISTS `attributes`;
 CREATE TABLE IF NOT EXISTS `attributes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(500) NOT NULL,
-  `text` varchar(500) NOT NULL,
+  `name` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `text` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `cat_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `attributes`
@@ -115,12 +115,12 @@ INSERT INTO `attributes` (`id`, `name`, `text`, `cat_id`) VALUES
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(500) NOT NULL DEFAULT 'new category',
+  `name` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL DEFAULT 'new category',
   `last_id` int NOT NULL,
   `deep` int NOT NULL,
   `person_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=157 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=160 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `category`
@@ -156,7 +156,92 @@ INSERT INTO `category` (`id`, `name`, `last_id`, `deep`, `person_id`) VALUES
 (153, 'TVCO', 152, 0, 21),
 (154, 'سرور', 0, 0, 21),
 (155, 'پور سلیمانی', 154, 0, 21),
-(156, 'iranhost.com', 154, 0, 21);
+(156, 'iranhost.com', 154, 0, 21),
+(159, 'پارس وب سرور', 154, 0, 21);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `enfreedays`
+--
+
+DROP TABLE IF EXISTS `enfreedays`;
+CREATE TABLE IF NOT EXISTS `enfreedays` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Y` int NOT NULL,
+  `M` int NOT NULL,
+  `D` int NOT NULL,
+  `color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `cat_id` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `enfreedays`
+--
+
+INSERT INTO `enfreedays` (`id`, `Y`, `M`, `D`, `color`, `user_id`, `cat_id`) VALUES
+(6, 2023, 3, 2, '255,187,243_0,0,0', 21, 9),
+(7, 2023, 3, 3, '255,187,243_0,0,0', 21, 9),
+(9, 2022, 12, 25, '255,187,243_0,0,0', 21, 9),
+(10, 2022, 12, 26, '254,255,187_0,0,0', 21, 9),
+(11, 2022, 12, 27, '254,255,187_0,0,0', 21, 9),
+(12, 2022, 12, 28, '254,255,187_0,0,0', 21, 9),
+(13, 2022, 12, 29, '254,255,187_0,0,0', 21, 9),
+(14, 2022, 12, 30, '254,255,187_0,0,0', 21, 9),
+(15, 2022, 12, 31, '254,255,187_0,0,0', 21, 9),
+(27, 2022, 9, 18, '175,73,0_255,255,255', 21, 9),
+(28, 2022, 9, 19, '52,255,208_0,0,0', 21, 9),
+(29, 2022, 9, 20, '255,52,249_0,0,0', 21, 9),
+(30, 2022, 9, 21, '255,187,243_0,0,0', 21, 9),
+(37, 2022, 9, 30, '255,187,243_0,0,0', 21, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `enmessages`
+--
+
+DROP TABLE IF EXISTS `enmessages`;
+CREATE TABLE IF NOT EXISTS `enmessages` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `msg` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `Y` int NOT NULL,
+  `M` int NOT NULL,
+  `D` int NOT NULL,
+  `W` int NOT NULL,
+  `date` date NOT NULL,
+  `has_end` int NOT NULL DEFAULT '0',
+  `end_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `cat_id` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `enmessages`
+--
+
+INSERT INTO `enmessages` (`id`, `msg`, `Y`, `M`, `D`, `W`, `date`, `has_end`, `end_date`, `cat_id`) VALUES
+(5, 'کریسمس', -1, 12, 26, -1, '2022-12-26', 0, '2022-12-21 20:30:00', 21),
+(2, 'شروع کریسمس', -1, 12, 25, -1, '2022-12-25', 0, '2022-12-21 20:30:00', 21),
+(3, 'آخرین روز کریسمس\r\n', -1, 1, 6, -1, '2022-01-06', 0, '2022-12-21 20:30:00', 21),
+(4, 'ولنتاین\r\n', 2022, 2, 14, -1, '2022-02-14', 0, '2022-12-21 20:30:00', 21),
+(6, 'کریسمس', -1, 12, 27, -1, '2022-12-27', 0, '2022-12-21 20:30:00', 21),
+(7, 'کریسمس', -1, 12, 28, -1, '2022-12-28', 0, '2022-12-21 20:30:00', 21),
+(8, 'کریسمس', -1, 12, 29, -1, '2022-12-29', 0, '2022-12-21 20:30:00', 21),
+(9, 'کریسمس', -1, 12, 30, -1, '2022-12-30', 0, '2022-12-21 20:30:00', 21),
+(10, 'کریسمس', -1, 12, 31, -1, '2022-12-31', 0, '2022-12-21 20:30:00', 21),
+(11, 'کریسمس', -1, 1, 5, -1, '2022-01-05', 0, '2022-12-21 20:30:00', 21),
+(12, 'کریسمس', -1, 1, 4, -1, '2022-01-04', 0, '2022-12-21 20:30:00', 21),
+(13, 'کریسمس', -1, 1, 3, -1, '2022-01-03', 0, '2022-12-21 20:30:00', 21),
+(14, 'کریسمس', -1, 1, 2, -1, '2022-01-02', 0, '2022-12-21 20:30:00', 21),
+(15, 'کریسمس', -1, 1, 1, -1, '2022-01-01', 0, '2022-12-21 20:30:00', 21),
+(16, 'تولد من و علی\r\n', -1, 6, 6, -1, '2022-06-06', 0, '2022-12-21 20:30:00', 14),
+(18, 'کنکور', 2023, 3, 2, -1, '2023-03-02', 0, '2022-12-21 20:30:00', 9),
+(19, 'کنکور', 2023, 3, 3, -1, '2023-03-03', 0, '2022-12-21 20:30:00', 9),
+(20, 'رنگای مورد علاقه مامان جون :)\r\n', 2022, -1, -1, -1, '2022-09-18', 1, '2022-09-20 19:30:00', 9),
+(21, 'ثبت سرویس\r\n', 2022, 12, 23, -1, '2022-12-23', 0, '2022-12-24 20:30:00', 159);
 
 -- --------------------------------------------------------
 
@@ -170,11 +255,11 @@ CREATE TABLE IF NOT EXISTS `freedays` (
   `Y` int NOT NULL,
   `M` int NOT NULL,
   `D` int NOT NULL,
-  `color` varchar(255) NOT NULL,
+  `color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `user_id` int NOT NULL,
   `cat_id` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `freedays`
@@ -182,14 +267,37 @@ CREATE TABLE IF NOT EXISTS `freedays` (
 
 INSERT INTO `freedays` (`id`, `Y`, `M`, `D`, `color`, `user_id`, `cat_id`) VALUES
 (6, 1401, 12, 11, '255,255,255_0,0,0', 21, 0),
-(10, 1401, 12, 12, '255,52,249_0,0,0', 21, 9),
-(16, 1401, 12, 11, '255,52,249_0,0,0', 21, 9),
-(14, 1401, 10, 4, '39,135,71_255,255,255', 21, 14),
+(10, 1401, 12, 12, '187,255,246_0,0,0', 21, 9),
+(16, 1401, 12, 11, '187,255,246_0,0,0', 21, 9),
 (15, 1401, 10, 11, '39,135,71_255,255,255', 21, 15),
 (17, 1401, 11, 18, '255,255,255_0,0,0', 21, 0),
 (18, 1402, 3, 10, '233,255,52_0,0,0', 21, 9),
 (19, 1402, 6, 1, '233,255,52_0,0,0', 21, 9),
-(23, 1401, 9, 29, '233,255,52_0,0,0', 21, 153);
+(23, 1401, 9, 29, '233,255,52_0,0,0', 21, 153),
+(26, 1401, 8, 19, '0,0,0_255,255,255', 21, 122),
+(27, 1401, 9, 7, '125,39,135_255,255,255', 21, 146),
+(28, 1401, 8, 29, '39,86,135_255,255,255', 21, 146),
+(33, 1401, 8, 23, '52,255,208_0,0,0', 21, 119),
+(34, 1401, 8, 25, '52,255,208_0,0,0', 21, 119),
+(35, 1401, 8, 28, '52,255,208_0,0,0', 21, 119),
+(36, 1401, 8, 29, '52,255,208_0,0,0', 21, 119),
+(39, 1401, 1, 13, '100,12,12_255,255,255', 21, 0),
+(52, 1401, 9, 30, '39,135,71_255,255,255', 21, 148),
+(53, 1401, 9, 20, '39,135,71_255,255,255', 21, 9),
+(54, 1401, 1, 1, '248,187,255_0,0,0', 21, 150),
+(55, 1401, 1, 2, '255,187,187_0,0,0', 21, 150),
+(56, 1401, 1, 3, '255,187,231_0,0,0', 21, 150),
+(57, 1401, 1, 8, '187,255,246_0,0,0', 21, 150),
+(58, 1401, 1, 9, '254,255,187_0,0,0', 21, 150),
+(59, 1401, 1, 10, '187,255,217_0,0,0', 21, 150),
+(60, 1401, 1, 16, '255,187,243_0,0,0', 21, 150),
+(61, 1401, 1, 15, '233,255,52_0,0,0', 21, 150),
+(62, 1401, 1, 17, '52,255,208_0,0,0', 21, 150),
+(63, 1401, 4, 7, '254,255,187_0,0,0', 21, 150),
+(64, 1401, 5, 12, '187,255,217_0,0,0', 21, 150),
+(65, 1401, 6, 19, '255,187,187_0,0,0', 21, 150),
+(66, 1401, 3, 24, '255,187,243_0,0,0', 21, 150),
+(67, 1401, 4, 19, '187,255,246_0,0,0', 21, 150);
 
 -- --------------------------------------------------------
 
@@ -200,7 +308,7 @@ INSERT INTO `freedays` (`id`, `Y`, `M`, `D`, `color`, `user_id`, `cat_id`) VALUE
 DROP TABLE IF EXISTS `messages`;
 CREATE TABLE IF NOT EXISTS `messages` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `msg` varchar(500) DEFAULT NULL,
+  `msg` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `Y` int NOT NULL,
   `M` int NOT NULL,
   `D` int NOT NULL,
@@ -210,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `end_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `cat_id` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=145 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=148 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `messages`
@@ -231,6 +339,7 @@ INSERT INTO `messages` (`id`, `msg`, `Y`, `M`, `D`, `W`, `date`, `has_end`, `end
 (41, 'تولد من و علی', -1, 3, 16, -1, '2022-06-06', 0, '2022-11-06 20:30:00', 14),
 (42, '45 خاله گل', -1, 5, 3, -1, '2022-07-25', 0, '2022-11-10 20:30:00', 14),
 (43, '84 رضا', -1, 7, 18, -1, '2022-10-10', 0, '2022-11-10 20:30:00', 14),
+(147, 'زندایی مژگان 1370', -1, 12, 14, -1, '2023-03-05', 0, '2022-12-20 20:30:00', 14),
 (143, 'ثبت نام\r\n', 1401, 9, 21, -1, '2022-12-12', 0, '2022-12-11 20:30:00', 149),
 (142, 'دریافتی از علی 50000 ریال', 1401, 9, 20, -1, '2022-12-11', 0, '2022-12-10 20:30:00', 148),
 (141, 'خرید سریالهای شرکت در کنکور ارشد 4660000 ریال', 1401, 9, 20, -1, '2022-12-11', 0, '2022-12-10 20:30:00', 148),
@@ -262,6 +371,8 @@ INSERT INTO `messages` (`id`, `msg`, `Y`, `M`, `D`, `W`, `date`, `has_end`, `end
 (111, '95 شهریار\r\n', -1, 5, 10, -1, '2022-08-01', 0, '2022-11-10 20:30:00', 14),
 (107, '83 فاطمه\r\n', -1, 10, 29, -1, '2023-01-19', 0, '2022-11-10 20:30:00', 14),
 (104, '58  خاله\r\n', -1, 8, 20, -1, '2022-11-11', 0, '2022-11-10 20:30:00', 14),
+(146, 'واریز 5،570،000 ریال سهام عدالت', 1401, 9, 30, -1, '2022-12-21', 0, '2022-12-20 20:30:00', 148),
+(145, 'برنامه کارخونه', 1401, -1, -1, -1, '2022-07-26', 1, '2022-09-21 20:30:00', 119),
 (144, 'شروع 1 ماه نسخه آزمایشی', 1401, 9, 29, -1, '2022-12-20', 0, '2022-12-19 20:30:00', 153),
 (88, '61 دایی مهدی', -1, 6, 20, -1, '0624-09-11', 0, '2022-11-10 20:30:00', 14),
 (89, 'این ماه قراره فیلم the menu بیادش', 1401, 11, 1, -1, '2023-01-21', 0, '2022-11-07 20:30:00', 47),
@@ -303,15 +414,15 @@ INSERT INTO `messages` (`id`, `msg`, `Y`, `M`, `D`, `W`, `date`, `has_end`, `end
 
 DROP TABLE IF EXISTS `persons`;
 CREATE TABLE IF NOT EXISTS `persons` (
-  `name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `situation` int NOT NULL DEFAULT '1',
   `role` int NOT NULL DEFAULT '0',
   `access_id` int NOT NULL,
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `welcome_name` varchar(255) DEFAULT NULL COMMENT 'اسم خوش امد گویی',
+  `welcome_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL COMMENT 'اسم خوش امد گویی',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `persons`
@@ -332,7 +443,7 @@ CREATE TABLE IF NOT EXISTS `person_accesses` (
   `person_id` int NOT NULL,
   `access_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=138 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=138 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `person_accesses`
@@ -351,9 +462,9 @@ INSERT INTO `person_accesses` (`id`, `person_id`, `access_id`) VALUES
 DROP TABLE IF EXISTS `programm`;
 CREATE TABLE IF NOT EXISTS `programm` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `hash_code` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `hash_code` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `programm`

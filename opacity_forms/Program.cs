@@ -15,13 +15,14 @@ namespace opacity_forms
             Application.SetCompatibleTextRenderingDefault(false);
 
             //====================================================================================================================
-            //Classes.Helper.ENV.SERVER = "185.211.56.254";//185.10.75.8
-            //Classes.Helper.ENV.USER = "aryair_Rs"; //test_tc
-            //Classes.Helper.ENV.PASS = "Mohammad_Maleks534930";//534930
-            //Classes.Helper.ENV.DB = "aryair_Rs";//tvco_test
-            //Classes.Helper.ENV.SET_CONN();
+            Classes.Helper.ENV.SERVER = "31.214.174.195";//185.10.75.8
+            Classes.Helper.ENV.USER = "aryair_Ps"; //test_tc
+            Classes.Helper.ENV.PASS = "Mohammad_Maleks534930";//534930
+            Classes.Helper.ENV.DB = "aryair_Ps";//tvco_test
+            Classes.Helper.ENV.SET_CONN();
+            //MessageBox.Show(Classes.Helper.ENV.STR_CONN);
             //====================================================================================================================
-        string code;
+            string code;
             int count;
 
             if (!Classes.Helper.Function.CheckForInternetConnection())// برسی اتصال به اینترنت
