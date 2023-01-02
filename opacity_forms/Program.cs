@@ -13,14 +13,36 @@ namespace opacity_forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            //Application.Run(new Boxes.Forms.dateprojectstack.DGV());
+            //return;
             //====================================================================================================================
-            Classes.Helper.ENV.SERVER = "31.214.174.195";//185.10.75.8
-            Classes.Helper.ENV.USER = "aryair_Ps"; //test_tc
-            Classes.Helper.ENV.PASS = "Mohammad_Maleks534930";//534930
-            Classes.Helper.ENV.DB = "aryair_Ps";//tvco_test
+            Classes.Helper.ENV.SERVER = "31.214.174.195";
+            Classes.Helper.ENV.USER = "aryair_Ps";
+            Classes.Helper.ENV.PASS = "Mohammad_Maleks534930";
+            Classes.Helper.ENV.DB = "aryair_Ps";
+            Classes.Helper.ENV.PORT = "3306";
+            //====================================================================================================================
+            //Classes.Helper.ENV.SERVER = "127.0.0.1";
+            //Classes.Helper.ENV.USER = "mohammad_maleks";
+            //Classes.Helper.ENV.PASS = "Mohammad_Maleks534930";
+            //Classes.Helper.ENV.DB = "ps";
+            //Classes.Helper.ENV.PORT = "3306";
+            //====================================================================================================================
+            //Classes.Helper.ENV.SERVER = "127.0.0.1";
+            //Classes.Helper.ENV.USER = "root";
+            //Classes.Helper.ENV.PASS = "";
+            //Classes.Helper.ENV.DB = "ps";
+            //Classes.Helper.ENV.PORT = "3306";
+            //====================================================================================================================
             Classes.Helper.ENV.SET_CONN();
-            //MessageBox.Show(Classes.Helper.ENV.STR_CONN);
+            //====================================================================================================================
+            //(new Classes.Helper.ENV())
+            //    .SET("Server", "31.214.174.195")
+            //    .SET("username", "aryair_Ps")
+            //    .SET("password", "Mohammad_Maleks534930")
+            //    .SET("database", "aryair_Ps")
+            //    .SET("SSL Mode", "0")
+            //    .SET("Port", "3306");
             //====================================================================================================================
             string code;
             int count;

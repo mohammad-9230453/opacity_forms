@@ -194,6 +194,12 @@
     <Compile Include="Boxes\Forms\category\Category.Designer.cs">
       <DependentUpon>Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Boxes\Forms\dateprojectstack\DGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boxes\Forms\dateprojectstack\DGV.Designer.cs">
+      <DependentUpon>DGV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Boxes\Forms\hash\New_Hash_Code_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Boxes\Forms\category\Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boxes\Forms\dateprojectstack\DGV.resx">
+      <DependentUpon>DGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Boxes\Forms\hash\New_Hash_Code_Form.resx">
       <DependentUpon>New_Hash_Code_Form.cs</DependentUpon>
