@@ -219,6 +219,8 @@
             this.lblM_11 = new System.Windows.Forms.Label();
             this.pnlM8 = new System.Windows.Forms.Panel();
             this.M8_table = new System.Windows.Forms.DataGridView();
+            this.رنگزمینهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colors = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.M7_table)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.pnlM6.SuspendLayout();
@@ -359,17 +361,18 @@
             this.ماهToolStripMenuItem,
             this.تغییروضعیتToolStripMenuItem,
             this.افزودنپیغامToolStripMenuItem,
-            this.تعیینرنگToolStripMenuItem});
+            this.تعیینرنگToolStripMenuItem,
+            this.رنگزمینهToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.contextMenuStrip1.ShowCheckMargin = true;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(164, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 136);
             this.contextMenuStrip1.Text = "سلام";
             // 
             // ماهToolStripMenuItem
             // 
             this.ماهToolStripMenuItem.Name = "ماهToolStripMenuItem";
-            this.ماهToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.ماهToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.ماهToolStripMenuItem.Text = "ماه";
             this.ماهToolStripMenuItem.Click += new System.EventHandler(this.ماهToolStripMenuItem_Click);
             // 
@@ -379,7 +382,7 @@
             this.آزادToolStripMenuItem,
             this.تعطیلToolStripMenuItem});
             this.تغییروضعیتToolStripMenuItem.Name = "تغییروضعیتToolStripMenuItem";
-            this.تغییروضعیتToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.تغییروضعیتToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.تغییروضعیتToolStripMenuItem.Text = "تغییر وضعیت";
             // 
             // آزادToolStripMenuItem
@@ -401,7 +404,7 @@
             // افزودنپیغامToolStripMenuItem
             // 
             this.افزودنپیغامToolStripMenuItem.Name = "افزودنپیغامToolStripMenuItem";
-            this.افزودنپیغامToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.افزودنپیغامToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.افزودنپیغامToolStripMenuItem.Text = "افزودن پیغام";
             this.افزودنپیغامToolStripMenuItem.Click += new System.EventHandler(this.افزودنپیغامToolStripMenuItem_Click);
             // 
@@ -432,7 +435,7 @@
             this.c06ToolStripMenuItem,
             this.c07ToolStripMenuItem});
             this.تعیینرنگToolStripMenuItem.Name = "تعیینرنگToolStripMenuItem";
-            this.تعیینرنگToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.تعیینرنگToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.تعیینرنگToolStripMenuItem.Text = "تعیین رنگ";
             this.تعیینرنگToolStripMenuItem.Click += new System.EventHandler(this.Color_Click);
             // 
@@ -2146,6 +2149,19 @@
             this.M8_table.TabIndex = 0;
             this.M8_table.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.M1_table_CellMouseDown);
             // 
+            // رنگزمینهToolStripMenuItem
+            // 
+            this.رنگزمینهToolStripMenuItem.Name = "رنگزمینهToolStripMenuItem";
+            this.رنگزمینهToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.رنگزمینهToolStripMenuItem.Text = "رنگ زمینه";
+            this.رنگزمینهToolStripMenuItem.Click += new System.EventHandler(this.رنگزمینهToolStripMenuItem_Click);
+            // 
+            // colors
+            // 
+            this.colors.AnyColor = true;
+            this.colors.FullOpen = true;
+            this.colors.ShowHelp = true;
+            // 
             // EnDates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2344,5 +2360,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.ToolStripMenuItem رنگزمینهToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colors;
     }
 }

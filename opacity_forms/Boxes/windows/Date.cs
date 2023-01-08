@@ -349,6 +349,37 @@ namespace opacity_forms.Boxes.windows
             }
         }
 
+        private void رنگزمینهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string color = null;
+            string color2 = null;
+            List<int> ints = new List<int>();
+            if (month > 0 && day > 0 && Classes.global_inf.cat_id != 0)
+            {
+
+                if (Classes.Helper.DB.GET_BOOL($"SELECT * FROM freedays WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id} AND cat_id = {Classes.global_inf.cat_id}"))
+                {
+                    color2 = freedays.Where(a => (a.Y == year && a.M == month && a.D == day)).Select(a => a.color).FirstOrDefault();
+                    ints = color2.Trim().Split(',', '-', '_', '@', '.', '#').Select(c => Convert.ToInt32(c.Trim())).ToList();
+                }
+                colors.Color = ints.Count == 6 ? Color.FromArgb(ints[0], ints[1] , ints[2]): Color.White;
+                if (colors.ShowDialog() == DialogResult.OK) color = $"{colors.Color.R},{colors.Color.G},{colors.Color.B}_";
+                else return;
+                colors.Color = ints.Count == 6 ? Color.FromArgb(ints[3], ints[4] , ints[5]): Color.White;
+                if (colors.ShowDialog() == DialogResult.OK) color += $"{colors.Color.R},{colors.Color.G},{colors.Color.B}";
+                else return;
+                if (Classes.Helper.DB.GET_BOOL($"SELECT * FROM freedays WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id} AND cat_id = {Classes.global_inf.cat_id}"))
+                {
+                    
+                    Classes.Helper.DB.SQL_QUERY($"UPDATE freedays SET color='{color}' WHERE D={day} AND M={month} AND Y={year} AND user_id = {Classes.global_inf.user_id} AND cat_id = {Classes.global_inf.cat_id}");
+                    this.Set_Year();
+                    return;
+                }
+                Classes.Helper.DB.SQL_QUERY($"INSERT INTO freedays (D,M,Y,color,user_id,cat_id) VALUES({day},{month},{year},'{color}',{Classes.global_inf.user_id},{Classes.global_inf.cat_id})");
+                this.Set_Year();
+            }
+        }
+
         private void Date_Load(object sender, EventArgs e)
         {
         }
