@@ -42,7 +42,7 @@ namespace opacity_forms
             pnl_list.BackColor = Color.FromArgb(125, Color.Black);
 
             //panel1.BackColor = Color.FromArgb(150,Color.DimGray);
-            btn_تنضیمات.BackColor = Color.FromArgb(185, 0, 64, 64);
+            btn_زمینه.BackColor = Color.FromArgb(185, 0, 64, 64);
 
             pnl_header.BackColor = Color.FromArgb(150, Color.DimGray);
             setting_box.BackColor = Color.FromArgb(180, Color.Black);
@@ -142,7 +142,8 @@ namespace opacity_forms
         private void btn_exit_Click(object sender, EventArgs e)
         {
 
-            this.background.Close();
+            //this.background.Close();
+            this.Close();
         }
 
 
@@ -426,6 +427,15 @@ namespace opacity_forms
                 this.date2.Set_Year();
                 this.enDates1.Set_Year();
             }
+        }
+
+        private void btn_زمینه_Click(object sender, EventArgs e)
+        {
+            var path = new OpenFileDialog() { Filter = "(*.png;*.jpg;)|*.jpg;*.png;" };
+            var result = path.ShowDialog();
+            this.BackgroundImage = null;
+            if (result == DialogResult.OK)
+                this.BackgroundImage = System.Drawing.Image.FromFile(path.FileName);
         }
     }
 }

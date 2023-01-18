@@ -22,11 +22,11 @@ namespace opacity_forms
             Classes.Helper.ENV.DB = "aryair_Ps";
             Classes.Helper.ENV.PORT = "3306";
             //====================================================================================================================
-            //Classes.Helper.ENV.SERVER = "127.0.0.1";
-            //Classes.Helper.ENV.USER = "mohammad_maleks";
-            //Classes.Helper.ENV.PASS = "Mohammad_Maleks534930";
-            //Classes.Helper.ENV.DB = "ps";
-            //Classes.Helper.ENV.PORT = "3306";
+            Classes.Helper.ENV.SERVER = "127.0.0.1";
+            Classes.Helper.ENV.USER = "mohammad_maleks";
+            Classes.Helper.ENV.PASS = "Mohammad_Maleks534930";
+            Classes.Helper.ENV.DB = "ps";
+            Classes.Helper.ENV.PORT = "3306";
             //====================================================================================================================
             //Classes.Helper.ENV.SERVER = "127.0.0.1";
             //Classes.Helper.ENV.USER = "root";

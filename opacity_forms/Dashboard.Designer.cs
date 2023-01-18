@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            this.btn_تنضیمات = new System.Windows.Forms.Button();
+            this.btn_زمینه = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.enDates1 = new opacity_forms.Boxes.windows.EnDates();
+            this.date2 = new opacity_forms.Boxes.windows.Date();
             this.pnl_list = new System.Windows.Forms.Panel();
             this.pnl_drop_3 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -67,8 +69,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tik_tok_date_time = new System.Windows.Forms.Timer(this.components);
-            this.enDates1 = new opacity_forms.Boxes.windows.EnDates();
-            this.date2 = new opacity_forms.Boxes.windows.Date();
             this.panel1.SuspendLayout();
             this.pnl_list.SuspendLayout();
             this.pnl_drop_3.SuspendLayout();
@@ -80,23 +80,22 @@
             this.setting_box.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_تنضیمات
+            // btn_زمینه
             // 
-            this.btn_تنضیمات.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_تنضیمات.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_تنضیمات.FlatAppearance.BorderSize = 0;
-            this.btn_تنضیمات.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_تنضیمات.Font = new System.Drawing.Font("B Titr", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_تنضیمات.ForeColor = System.Drawing.Color.White;
-            this.btn_تنضیمات.Location = new System.Drawing.Point(0, 0);
-            this.btn_تنضیمات.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_تنضیمات.Name = "btn_تنضیمات";
-            this.btn_تنضیمات.Size = new System.Drawing.Size(195, 36);
-            this.btn_تنضیمات.TabIndex = 0;
-            this.btn_تنضیمات.Text = "تنضیمات";
-            this.btn_تنضیمات.UseVisualStyleBackColor = false;
-            this.btn_تنضیمات.Visible = false;
-            this.btn_تنضیمات.Click += new System.EventHandler(this.button1_Click);
+            this.btn_زمینه.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_زمینه.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_زمینه.FlatAppearance.BorderSize = 0;
+            this.btn_زمینه.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_زمینه.Font = new System.Drawing.Font("B Titr", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_زمینه.ForeColor = System.Drawing.Color.White;
+            this.btn_زمینه.Location = new System.Drawing.Point(0, 0);
+            this.btn_زمینه.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_زمینه.Name = "btn_زمینه";
+            this.btn_زمینه.Size = new System.Drawing.Size(195, 36);
+            this.btn_زمینه.TabIndex = 0;
+            this.btn_زمینه.Text = "زمینه";
+            this.btn_زمینه.UseVisualStyleBackColor = false;
+            this.btn_زمینه.Click += new System.EventHandler(this.btn_زمینه_Click);
             // 
             // panel1
             // 
@@ -114,13 +113,33 @@
             this.panel1.Size = new System.Drawing.Size(1102, 603);
             this.panel1.TabIndex = 1;
             // 
+            // enDates1
+            // 
+            this.enDates1.BackColor = System.Drawing.Color.Transparent;
+            this.enDates1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enDates1.Location = new System.Drawing.Point(0, 39);
+            this.enDates1.Name = "enDates1";
+            this.enDates1.Size = new System.Drawing.Size(907, 540);
+            this.enDates1.TabIndex = 6;
+            this.enDates1.Visible = false;
+            // 
+            // date2
+            // 
+            this.date2.BackColor = System.Drawing.Color.Transparent;
+            this.date2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.date2.Location = new System.Drawing.Point(0, 39);
+            this.date2.Name = "date2";
+            this.date2.Size = new System.Drawing.Size(907, 540);
+            this.date2.TabIndex = 2;
+            this.date2.Visible = false;
+            // 
             // pnl_list
             // 
             this.pnl_list.AutoScroll = true;
             this.pnl_list.Controls.Add(this.pnl_drop_3);
             this.pnl_list.Controls.Add(this.pnl_drop_2);
             this.pnl_list.Controls.Add(this.pnl_drop_name);
-            this.pnl_list.Controls.Add(this.btn_تنضیمات);
+            this.pnl_list.Controls.Add(this.btn_زمینه);
             this.pnl_list.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnl_list.Location = new System.Drawing.Point(907, 39);
             this.pnl_list.Name = "pnl_list";
@@ -628,26 +647,6 @@
             this.tik_tok_date_time.Interval = 1000;
             this.tik_tok_date_time.Tick += new System.EventHandler(this.tik_tok_date_time_Tick);
             // 
-            // enDates1
-            // 
-            this.enDates1.BackColor = System.Drawing.Color.Transparent;
-            this.enDates1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.enDates1.Location = new System.Drawing.Point(0, 39);
-            this.enDates1.Name = "enDates1";
-            this.enDates1.Size = new System.Drawing.Size(907, 540);
-            this.enDates1.TabIndex = 6;
-            this.enDates1.Visible = false;
-            // 
-            // date2
-            // 
-            this.date2.BackColor = System.Drawing.Color.Transparent;
-            this.date2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.date2.Location = new System.Drawing.Point(0, 39);
-            this.date2.Name = "date2";
-            this.date2.Size = new System.Drawing.Size(907, 540);
-            this.date2.TabIndex = 2;
-            this.date2.Visible = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,7 +680,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_تنضیمات;
+        private System.Windows.Forms.Button btn_زمینه;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnl_header;
         private System.Windows.Forms.Button btn_exit;

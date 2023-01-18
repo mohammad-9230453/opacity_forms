@@ -11,8 +11,8 @@ namespace opacity_forms
         public background()
         {
             InitializeComponent();
-            btn_login.BackColor = Color.FromArgb(50, Color.DarkGreen);
-            btn_cancel.BackColor = Color.FromArgb(50, Color.DarkRed);
+            //btn_login.BackColor = Color.FromArgb(50, Color.DarkGreen);
+            //btn_cancel.BackColor = Color.FromArgb(50, Color.DarkRed);
 
 
 
@@ -55,14 +55,9 @@ namespace opacity_forms
             }
         }
 
-        private void btn_cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         Boxes.Alert.Alert alert = new Boxes.Alert.Alert();
-        private void btn_login_Click(object sender, EventArgs e)
+        private void login()
         {
-
             bool flag = true;
             string name_ = null, pass_ = null;
             name_ = Convert.ToString(txt_username.Text);
@@ -91,9 +86,7 @@ namespace opacity_forms
             dashboard.lbl_username.Text = Convert.ToString(person.Rows[0]["نام"]);
             Classes.global_inf.user_id = Convert.ToString(person.Rows[0]["person_id"]);
             Classes.global_inf.cat_id = 0;
-            dashboard.ShowDialog(this);
-
-
+            if (dashboard.ShowDialog(this) == DialogResult.Cancel) this.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -126,6 +119,17 @@ namespace opacity_forms
         private void button5_MouseUp(object sender, MouseEventArgs e)
         {
             txt_password.UseSystemPasswordChar = true;
+        }
+
+        private void background_KeyDown(object sender, KeyEventArgs e)
+        {
+            //***********************************************
+            if (e.KeyCode == Keys.Enter)
+                login();
+
+            if ((e.KeyCode == Keys.Escape) || (e.KeyCode == Keys.F4 && e.Alt)) 
+                this.Close();   
+
         }
     }
 }
