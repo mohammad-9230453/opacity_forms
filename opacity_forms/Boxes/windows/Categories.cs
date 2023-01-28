@@ -486,6 +486,16 @@ namespace opacity_forms.Boxes.windows.helper
 
         }
 
+        private void attributes_table_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e!=null && e.RowIndex > -1)
+            {
+                string s = this.attributes_table.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                Clipboard.SetText(s);
+                alert.shortAlert($"کپی شد  {s}", Alert.topShort.enmtype.success);
+            }
+        }
+
         private void createNewCategory(string id)
         {
             this.catPanel = new System.Windows.Forms.Panel();

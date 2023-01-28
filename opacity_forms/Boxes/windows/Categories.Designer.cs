@@ -150,6 +150,7 @@
             this.attributes_table.RowHeadersVisible = false;
             this.attributes_table.Size = new System.Drawing.Size(417, 413);
             this.attributes_table.TabIndex = 0;
+            this.attributes_table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.attributes_table_CellClick);
             this.attributes_table.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.attributes_table_CellMouseDown);
             this.attributes_table.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.attributes_table_DataBindingComplete);
             // 
