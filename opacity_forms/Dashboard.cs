@@ -253,14 +253,14 @@ namespace opacity_forms
             {
                 case drop_situation.open:
                     timer1.Interval = 1;
-                    //drop_btn_pnl[button].Height+=10;   //1
-                    drop_btn_pnl[button].Height = drop_btn_pnl[button].MaximumSize.Height;   //2
+                    drop_btn_pnl[button].Height+=10;   //1
+                    //drop_btn_pnl[button].Height = drop_btn_pnl[button].MaximumSize.Height;   //2
                     if (drop_btn_pnl[button].Height == drop_btn_pnl[button].MaximumSize.Height) situation = drop_situation.stop;
                     break;
                 case drop_situation.close:
                     timer1.Interval = 1;
-                    //drop_btn_pnl[button].Height-=10;  //1
-                    drop_btn_pnl[button].Height = drop_btn_pnl[button].MinimumSize.Height;  //2
+                    drop_btn_pnl[button].Height-=10;  //1
+                    //drop_btn_pnl[button].Height = drop_btn_pnl[button].MinimumSize.Height;  //2
                     if (drop_btn_pnl[button].Height == drop_btn_pnl[button].MinimumSize.Height) situation = drop_situation.stop;
                     break;
                 case drop_situation.stop:

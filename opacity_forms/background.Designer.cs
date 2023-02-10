@@ -84,11 +84,11 @@
             // pnl_logo
             // 
             this.pnl_logo.BackColor = System.Drawing.Color.Transparent;
-            this.pnl_logo.BackgroundImage = global::opacity_forms.Properties.Resources.how_to_run_windows_xp_windows_and_windows_in_aws_and_google_472050;
+            this.pnl_logo.BackgroundImage = global::opacity_forms.Properties.Resources.red_award_ribbon_157516;
             this.pnl_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnl_logo.Location = new System.Drawing.Point(108, 113);
+            this.pnl_logo.Location = new System.Drawing.Point(104, 113);
             this.pnl_logo.Name = "pnl_logo";
-            this.pnl_logo.Size = new System.Drawing.Size(25, 27);
+            this.pnl_logo.Size = new System.Drawing.Size(35, 40);
             this.pnl_logo.TabIndex = 6;
             this.pnl_logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             this.pnl_logo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
@@ -337,12 +337,12 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("MV Boli", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(127, 117);
+            this.label2.Location = new System.Drawing.Point(138, 117);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 18);
+            this.label2.Size = new System.Drawing.Size(86, 18);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Software Bank";
+            this.label2.Text = "Good Days";
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
             // 

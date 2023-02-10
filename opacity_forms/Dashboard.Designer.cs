@@ -501,15 +501,15 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(48, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 18);
+            this.label2.Size = new System.Drawing.Size(89, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Software Bank";
+            this.label2.Text = "Good Days";
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseMove);
             // 
             // pnl_logo
             // 
-            this.pnl_logo.BackgroundImage = global::opacity_forms.Properties.Resources.how_to_run_windows_xp_windows_and_windows_in_aws_and_google_472050;
+            this.pnl_logo.BackgroundImage = global::opacity_forms.Properties.Resources.red_award_ribbon_157516;
             this.pnl_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pnl_logo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_logo.Location = new System.Drawing.Point(0, 0);
@@ -652,7 +652,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BackgroundImage = global::opacity_forms.Properties.Resources.pexels_toni_cuenca_688573;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 603);
             this.Controls.Add(this.panel1);
